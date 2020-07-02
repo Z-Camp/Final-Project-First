@@ -1,25 +1,17 @@
-@import-normalize;
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
-* {
-  color: #006181;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rubik Mono One', sans-serif;
 }
 
-button {
-  border: none;
-  cursor: pointer;
-  background-color: #33ccff;
-  color: white;
-  font-size: 1.125rem;
-  padding: 0.75rem 1.5rem;
-}
-
-button:hover,
-button:active,
-button:focus {
-  background-color: #01bdfb;
+.small {
+  font-weight: 300;
+  font-style: italic;
 }

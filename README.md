@@ -1,4 +1,4 @@
-# Create React Express App
+# googlebooks-app with authentication using JWT (JSON Web Token)
 
 ## About This Boilerplate
 
@@ -18,14 +18,6 @@ Server-side article and using JWT: https://hptechblogs.com/using-json-web-token-
 Front End article on using the JWT on a react application: https://hptechblogs.com/using-json-web-token-react/
 
 ## Starting the app locally
-
-Add a .env at the top level of this project.
-
-Then inside of the .env add a SERVER_SECRET set to any value you'd like
-
-```
-SERVER_SECRET = 123456
-```
 
 First off make sure you have a local version of MongoDB running on your machine. This project will make a local database for you called `appDB`.
 
@@ -64,26 +56,4 @@ git commit -m "Initial commit"
 1. Go onto your heroku account and link your repository through the UI
 2. Go to resources and find mLab as a Add-on
 3. Provision a Mongo Database
-4. Go to Settings -> Config Vars and add a key of `SERVER_SECRET` with whatever value you want (this is in place of your local .env file)
-5. Go back and click "Deploy"
-
-## Tests/Linting
-
-Run `npm run lint` from the project root to run eslint checks on the backend
-and front end code. Run `npm run lint` from the `client` directory to lint the
-client only.
-
-The root and client have convenience scripts define to easily apply auto-fixes
-with eslint. Run `npm run lint:fix` from the root and `client` to apply fixes
-for the entire project or client only respectively.
-
-## Travis CI
-
-A basic configuration for Travis CI is included. Configure the GitHub repo to
-run checks before merging to enforce linting checks and tests.
-
-**IMPORTANT!** Add the mongodb service to `.travis.yml` if tests using MongoDB
-are included in the project. Likewise, if another database is used to replace
-MongoDB, then `.travis.yml` will need to be updated accordingly. Please refer
-to the [Travis CI Documentation](https://docs.travis-ci.com/) for more
-information.
+4. Go back and click "Deploy"
