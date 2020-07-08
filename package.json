@@ -1,7 +1,7 @@
 {
-  "name": "googlebooks-app",
-  "version": "1.0.0",
-  "description": "",
+  "name": "saiddit-app",
+  "version": "0.0.1",
+  "description": "definitely not a reddit clone. totally different",
   "main": "server/server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -12,13 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@work.github.com:arosenkranz/googlebooks-app.git"
+    "url": "https://github.com/Z-Camp/Final-Project-First.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "mongoose-auto-increment": "^5.0.1"
   },
   "devDependencies": {
     "concurrently": "^5.2.0"
