@@ -1,6 +1,6 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const commentSchema = new Schema({
+const CommentSchema = new Schema({
         author: {
             type: String,
             required: true,
@@ -25,7 +25,4 @@ const commentSchema = new Schema({
         },
 });
 
-
-const Comment = model('Comment', commentSchema);
-module.exports = commentSchema;
-module.exports = Comment;
+module.exports = model('Comment', CommentSchema);

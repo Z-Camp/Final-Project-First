@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-
+import PostCard  from '../components/PostCard/PostCard'
+// import { UserCard } from '../components/UserCard'
 // import context for global state
 import UserInfoContext from '../utils/UserInfoContext';
 
@@ -12,7 +13,7 @@ function SavedBooks() {
   const userData = useContext(UserInfoContext);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeleteBook = (bookId) => {
+  const handleDeletePost = (bookId) => {
     // get token
     const token = AuthService.loggedIn() ? AuthService.getToken() : null;
 
@@ -29,29 +30,36 @@ function SavedBooks() {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing saved books!</h1>
+  <h1>{userData.username}'s Profile</h1>
         </Container>
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedBooks.length
-            ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
+          {userData.savedPosts.length
+            ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'post' : 'posts'}:`
             : 'You have no saved books!'}
         </h2>
         <CardColumns>
-          {userData.savedBooks.map((book) => {
+          {userData.savedPosts.map((post) => {
             return (
-              <Card key={book.bookId} border='dark'>
-                {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
-                <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className='small'>Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
-                    Delete this Book!
-                  </Button>
-                </Card.Body>
-              </Card>
+              // <Card key={post.postId} border='dark'>
+              //   {post.image ? <Card.Img src={post.image} alt={`The cover for ${post.title}`} variant='top' /> : null}
+              //   <Card.Body>
+              //     <Card.Title>{post.title}</Card.Title>
+              //     <p className='small'>Authors: {post.author}</p>
+              //     <Card.Text>{post.postText}</Card.Text>
+              //     <Button className='btn-block btn-danger' onClick={() => handleDeletePost(post.postId)}>
+              //       Delete this Post!
+              //     </Button>
+              //   </Card.Body>
+              // </Card>
+              <PostCard
+              key={post.postId}
+              author={post.author}
+              title={post.title}
+              postText={post.postText}
+              updated={post.updated} >
+              </PostCard>
             );
           })}
         </CardColumns>

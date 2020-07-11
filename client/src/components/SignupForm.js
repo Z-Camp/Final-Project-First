@@ -9,7 +9,7 @@ function SignupForm({ handleModalClose }) {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', icon: '' });
   // set state for form validation
-  const [validated, setValidation] = useState(false);
+  const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [errorText, setErrorText] = useState('');

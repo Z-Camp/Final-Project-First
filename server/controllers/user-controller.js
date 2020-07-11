@@ -1,5 +1,6 @@
 // import user model
 const { User } = require('../models');
+const Post = require('../models/Post')
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 
@@ -58,6 +59,29 @@ module.exports = {
         { new: true, runValidators: true }
       );
       return res.json(updatedUser);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+    }
+  },
+  async savePost({ user, body }, res) {
+    console.log(user);
+    console.log(body)
+    try {
+      const newPost = await Post.create({
+        author: user.username,
+        authorID: user._id,
+        title: body.title,
+        postText: body.postText,
+        image: body.image,
+        link: body.link
+      })
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { savedPosts: newPost } },
+        { new: true, runValidators: true }
+      );
+      return res.json(newPost);
     } catch (err) {
       console.log(err);
       return res.status(400).json(err);
