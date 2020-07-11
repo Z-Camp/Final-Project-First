@@ -7,7 +7,7 @@ import AuthService from '../utils/auth';
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', icon: '' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -48,6 +48,8 @@ function SignupForm({ handleModalClose }) {
         setErrorText(err.response.data.message);
       });
   };
+
+ 
 
   return (
     <>
@@ -96,8 +98,19 @@ function SignupForm({ handleModalClose }) {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+        <Form.Group controlId="iconCheckbox" name="iconSelector">
+            <text>Choose your avatar:</text>
+            <Form.Check type="radio" label="Purple"/>
+            <Form.Check type="radio" label="Pink" />
+            <Form.Check type="radio" label="Yellow"/>
+            <Form.Check type="radio" label="Orange"/>
+            <Form.Check type="radio" label="Charcoal" />
+            <Form.Check type="radio" label="Smoke" />
+            <Form.Check type="radio" label="Red" />
+            <Form.Check type="radio" label="Blue" />
+          </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password && userFormData.icon)}
           type='submit'
           variant='success'>
           Submit
