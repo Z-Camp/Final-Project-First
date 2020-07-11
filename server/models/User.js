@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schemas from Post.js and Comment.js
-const postSchema = require('./Post');
-const commentSchema = require('./Comment');
+// imprt schemas from Post.js and Comment.js
+const PostSchema = require('./Post.js').schema;
+const CommentSchema = require("./Comment.js").schema;
 
 const userSchema = new Schema(
 	{
@@ -29,9 +29,9 @@ const userSchema = new Schema(
         default: "https://img.icons8.com/wired/64/000000/penis.png"
       }
     },
-		// savedPosts/Comments will be arrays that of posts/comments by the user that will follow their relative schemas
-		savedPosts: [postSchema],
-		saveComments: [commentSchema],
+		// savedPosts/Comments will be arrays of posts/comments by the user that will follow their relative schemas
+		savedPosts: [PostSchema],
+		savedComments: [CommentSchema],
 	},
 	// set this to use virtual below
 	{

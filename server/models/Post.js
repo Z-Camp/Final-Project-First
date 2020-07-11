@@ -1,14 +1,14 @@
-const { Schema } = require('mongoose');
-const commentSchema = require('./Comment')
+const { Schema, model } = require('mongoose');
+const CommentSchema = require('./Comment.js').schema;
 
 
-const postSchema = new Schema({
+const PostSchema = new Schema({
     author: {
 		type: String,
 		required: true,
 	},
     authorID: {
-        type: Number,
+        type: String,
         required: true,
     },
 	image: {
@@ -31,9 +31,26 @@ const postSchema = new Schema({
         required: true,
         default: Date.now,
     },
-    savedComments: [commentSchema]
+    savedComments: []
 });
 
-const Post = model('Post', postSchema);
+CommentSchema.set('toJSON', { getters: true });
+CommentSchema.options.toJSON.transform = (doc, ret) => {
+    const obj = { ...ret };
+    delete obj._id;
+    return obj;
+};
 
-module.exports = postSchema;
+PostSchema.methods.addComment = function (author, body) {
+    this.comments.push({ author, body });
+    return this.save();
+};
+PostSchema.methods.removeComment = function (id) {
+    const comment = this.comments.id(id);
+    if (!comment) throw new Error('Comment not found');
+    comment.remove();
+    return this.save();
+};
+
+const Post = model('Post', PostSchema);
+module.exports = Post

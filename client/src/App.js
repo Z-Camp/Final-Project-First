@@ -29,7 +29,7 @@ function App() {
 			}
 			API.getMe(token)
 				.then(({ data: { username, email, savedPosts, savedComments, postCount, commentCount } }) =>
-					setUserInfo({ ...username, email, savedPosts, savedComments, postCount, commentCount })
+					setUserInfo({ ...userInfo, username, email, savedPosts, savedComments, postCount, commentCount })
 				)
 				.catch((err) => console.log(err));
 		},
@@ -37,7 +37,7 @@ function App() {
 
 	// on load, get user data if a token exists
 	useEffect(() => {
-		userInfo.getUserData();
+    userInfo.getUserData();
 	});
 
 	return (

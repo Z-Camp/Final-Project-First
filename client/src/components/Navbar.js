@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+import PostForm from './PostForm';
 
 import UserInfoContext from '../utils/UserInfoContext';
 import AuthService from '../utils/auth';
@@ -10,12 +11,14 @@ import AuthService from '../utils/auth';
 function AppNavbar() {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+  const [showPostModal, setShowPostModal] = useState(false);
+
   // get username out of context object to display in nav
   const { username } = useContext(UserInfoContext);
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='light' variant='light' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             Saiddit
@@ -24,14 +27,15 @@ function AppNavbar() {
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/'>
-                Search Saiddit
+                Main Feed
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {username ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    See {username}'s Books
+                    See {username}'s Profile
                   </Nav.Link>
+                  <Nav.Link onClick={() => setShowPostModal(true)}>New Post</Nav.Link>
                   <Nav.Link onClick={AuthService.logout}>Logout</Nav.Link>
                 </>
               ) : (
@@ -64,6 +68,27 @@ function AppNavbar() {
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
+              </Tab.Pane>
+            </Tab.Content>
+          </Modal.Body>
+        </Tab.Container>
+      </Modal>
+      <Modal size='lg' show={showPostModal} onHide={() => setShowModal(false)} backdrop="static" aria-labelledby='post-modal'>
+        {/* tab container to do either signup or login component */}
+        <Tab.Container defaultActiveKey='post'>
+          <Modal.Header closeButton>
+            <Modal.Title id='post-modal'>
+              <Nav variant='pills'>
+                <Nav.Item>
+                  <Nav.Link eventKey='post'>New Post</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Tab.Content>
+              <Tab.Pane eventKey='post'>
+                <PostForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

@@ -2,28 +2,28 @@ import React, { useState, useContext } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import UserInfoContext from '../utils/UserInfoContext';
-import { createUser } from '../utils/API';
+import { savePost } from '../utils/API';
 import AuthService from '../utils/auth';
 
-function SignupForm({ handleModalClose }) {
+function PostForm({ handleModalClose }) {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [postFormData, setPostFormData] = useState({image: '', link: '', title: '', postText: ''});
   // set state for form validation
-  const [validated] = useState(false);
+  const [validated] = useState(true);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [errorText, setErrorText] = useState('');
 
   // get context object from app.js
-  const userData = useContext(UserInfoContext);
+  const userData = useContext(UserInfoContext)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setPostFormData({ ...postFormData, [name]: value });
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
+     e.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
     const form = e.currentTarget;
@@ -33,15 +33,8 @@ function SignupForm({ handleModalClose }) {
     }
 
     // send new user data to server, receiving the JWT and user data in return
-    createUser(userFormData)
-      .then(({ data: { token, user } }) => {
-        // set token to localstorage
-        AuthService.login(token);
-        // execute function from context api in app.js to update state for logged in user
-        userData.getUserData();
-        // close modal
-        handleModalClose();
-      })
+    savePost(postFormData, AuthService.getToken())
+      .then(handleModalClose())
       .catch((err) => {
         console.log(err.response);
         setShowAlert(true);
@@ -55,49 +48,47 @@ function SignupForm({ handleModalClose }) {
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          {errorText || 'Something went wrong with your signup!'}
+          {errorText || 'Something went wrong while submitting your post!'}
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label htmlFor='Title'>Title</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
-            name='username'
+            placeholder='Post Titile'
+            name='title'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={postFormData.title}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>Title is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label htmlFor='link'>Link(Optional)</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Your email address'
-            name='email'
+            type='text'
+            placeholder='Add a link to your Post'
+            name='link'
             onChange={handleInputChange}
-            value={userFormData.email}
-            required
+            value={postFormData.link}
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label htmlFor='postText'>Post Text</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Your password'
-            name='password'
+            type='text'
+            placeholder='(500 chars max)'
+            name='postText'
             onChange={handleInputChange}
-            value={userFormData.password}
+            value={postFormData.postText}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>Post text is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(postFormData.title && postFormData.link && postFormData.postText)}
           type='submit'
           variant='success'>
           Submit
@@ -107,4 +98,4 @@ function SignupForm({ handleModalClose }) {
   );
 }
 
-export default SignupForm;
+export default PostForm;

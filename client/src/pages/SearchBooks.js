@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Jumbotron, Container, Row, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 import UserInfoContext from '../utils/UserInfoContext';
 import AuthService from '../utils/auth';

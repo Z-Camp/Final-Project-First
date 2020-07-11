@@ -9,7 +9,7 @@ import AuthService from '../utils/auth';
 
 function LoginForm({ handleModalClose }) {
   const [userFormData, setUserFormData] = useState({ username: '', password: '' });
-  const [validated, setValidation] = useState(false);
+  const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [errorText, setErrorText] = useState('');
 
