@@ -12,13 +12,13 @@ function PostCard(props) {
       <Card.Body>
         <Card.Title>Post Title{props.title}</Card.Title>
         <Card.Text>
-          First few words from post
+          First few words from post{props.postText}
     </Card.Text>
         <Button variant="primary">Go to Post</Button>
       </Card.Body>
       <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
     </Card>
-    <Card className="text-center">
+    {/* <Card className="text-center">
       <Card.Header>User Name{props.author}</Card.Header>
       <Card.Body>
         <Card.Title>Post Title{props.title}</Card.Title>
@@ -50,7 +50,7 @@ function PostCard(props) {
         <Button variant="primary">Go to Post</Button>
       </Card.Body>
       <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
-    </Card>
+    </Card> */}
     </CardGroup>
 
   )

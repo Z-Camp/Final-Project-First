@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-
+import PostCard  from '../components/PostCard/PostCard'
+// import { UserCard } from '../components/UserCard'
 // import context for global state
 import UserInfoContext from '../utils/UserInfoContext';
 
@@ -29,29 +30,36 @@ function SavedBooks() {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing saved books!</h1>
+  <h1>{userData.username}'s Profile</h1>
         </Container>
       </Jumbotron>
       <Container>
         <h2>
           {userData.savedPosts.length
-            ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'book' : 'books'}:`
+            ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'post' : 'posts'}:`
             : 'You have no saved books!'}
         </h2>
         <CardColumns>
           {userData.savedPosts.map((post) => {
             return (
-              <Card key={post.postId} border='dark'>
-                {post.image ? <Card.Img src={post.image} alt={`The cover for ${post.title}`} variant='top' /> : null}
-                <Card.Body>
-                  <Card.Title>{post.title}</Card.Title>
-                  <p className='small'>Authors: {post.author}</p>
-                  <Card.Text>{post.postText}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeletePost(post.postId)}>
-                    Delete this Post!
-                  </Button>
-                </Card.Body>
-              </Card>
+              // <Card key={post.postId} border='dark'>
+              //   {post.image ? <Card.Img src={post.image} alt={`The cover for ${post.title}`} variant='top' /> : null}
+              //   <Card.Body>
+              //     <Card.Title>{post.title}</Card.Title>
+              //     <p className='small'>Authors: {post.author}</p>
+              //     <Card.Text>{post.postText}</Card.Text>
+              //     <Button className='btn-block btn-danger' onClick={() => handleDeletePost(post.postId)}>
+              //       Delete this Post!
+              //     </Button>
+              //   </Card.Body>
+              // </Card>
+              <PostCard
+              key={post.postId}
+              author={post.author}
+              title={post.title}
+              postText={post.postText}
+              updated={post.updated} >
+              </PostCard>
             );
           })}
         </CardColumns>

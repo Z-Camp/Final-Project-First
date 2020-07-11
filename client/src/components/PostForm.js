@@ -34,7 +34,9 @@ function PostForm({ handleModalClose }) {
 
     // send new user data to server, receiving the JWT and user data in return
     savePost(postFormData, AuthService.getToken())
-      .then(handleModalClose())
+      .then(({ data: { post, user } }) => {
+        handleModalClose();
+      })
       .catch((err) => {
         console.log(err.response);
         setShowAlert(true);
@@ -88,7 +90,7 @@ function PostForm({ handleModalClose }) {
           <Form.Control.Feedback type='invalid'>Post text is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(postFormData.title && postFormData.link && postFormData.postText)}
+          disabled={!(postFormData.title && postFormData.postText)}
           type='submit'
           variant='success'>
           Submit
