@@ -1,9 +1,18 @@
 import React, { useState, useContext } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, Image } from 'react-bootstrap';
 
 import UserInfoContext from '../utils/UserInfoContext';
 import { createUser } from '../utils/API';
 import AuthService from '../utils/auth';
+import BlueIcon from './userIcons/blue.png';
+import PurpleIcon from './userIcons/purple.png';
+import CharcoalIcon from './userIcons/charcoal.png';
+import OrangeIcon from './userIcons/orange.png';
+import PinkIcon from './userIcons/pink.png';
+import RedIcon from './userIcons/red.png';
+import SmokeIcon from './userIcons/smoke.png';
+import YellowIcon from './userIcons/yellow.png';
+
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
@@ -49,7 +58,8 @@ function SignupForm({ handleModalClose }) {
       });
   };
 
- 
+
+
 
   return (
     <>
@@ -99,16 +109,19 @@ function SignupForm({ handleModalClose }) {
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group controlId="iconCheckbox" name="iconSelector">
-            <text>Choose your avatar:</text>
-            <Form.Check type="radio" label="Purple"/>
-            <Form.Check type="radio" label="Pink" />
-            <Form.Check type="radio" label="Yellow"/>
-            <Form.Check type="radio" label="Orange"/>
-            <Form.Check type="radio" label="Charcoal" />
-            <Form.Check type="radio" label="Smoke" />
-            <Form.Check type="radio" label="Red" />
-            <Form.Check type="radio" label="Blue" />
-          </Form.Group>
+          <text>Choose your avatar:</text>
+        </Form.Group>
+        <div className="iconSet">
+          <Image type="radio" id="purple" src={PurpleIcon} thumbnail />
+          <Image id="pink" src={PinkIcon} thumbnail />
+          <Image id="yellow" src={YellowIcon} thumbnail />
+          <Image id="orange" src={OrangeIcon} thumbnail />
+          <Image id="charcoal" src={CharcoalIcon} thumbnail />
+          <Image id="smoke" src={SmokeIcon} thumbnail />
+          <Image id="red" src={RedIcon} thumbnail />
+          <Image id="blue" src={BlueIcon} thumbnail />
+
+        </div>
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
