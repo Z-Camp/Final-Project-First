@@ -8,49 +8,16 @@ function PostCard(props) {
   return (
     <CardGroup>
     <Card className="text-center">
-      <Card.Header>User Name{props.author}</Card.Header>
+      <Card.Header>{props.author}</Card.Header>
       <Card.Body>
-        <Card.Title>Post Title{props.title}</Card.Title>
+        <Card.Title>{props.title}</Card.Title>
         <Card.Text>
-          First few words from post{props.postText}
+          {props.postText}
     </Card.Text>
         <Button variant="primary">Go to Post</Button>
       </Card.Body>
-      <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
+      <Card.Footer className="text-muted">Updated:{props.updated}</Card.Footer>
     </Card>
-    {/* <Card className="text-center">
-      <Card.Header>User Name{props.author}</Card.Header>
-      <Card.Body>
-        <Card.Title>Post Title{props.title}</Card.Title>
-        <Card.Text>
-          First few words from post
-    </Card.Text>
-        <Button variant="primary">Go to Post</Button>
-      </Card.Body>
-      <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
-    </Card>
-    <Card className="text-center">
-      <Card.Header>User Name{props.author}</Card.Header>
-      <Card.Body>
-        <Card.Title>Post Title{props.title}</Card.Title>
-        <Card.Text>
-          First few words from post
-    </Card.Text>
-        <Button variant="primary">Go to Post</Button>
-      </Card.Body>
-      <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
-    </Card>
-    <Card className="text-center">
-      <Card.Header>User Name{props.author}</Card.Header>
-      <Card.Body>
-        <Card.Title>Post Title{props.title}</Card.Title>
-        <Card.Text>
-          First few words from post
-    </Card.Text>
-        <Button variant="primary">Go to Post</Button>
-      </Card.Body>
-      <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
-    </Card> */}
     </CardGroup>
 
   )
