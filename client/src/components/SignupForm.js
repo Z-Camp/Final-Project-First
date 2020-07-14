@@ -58,6 +58,12 @@ function SignupForm({ handleModalClose }) {
       });
   };
 
+  const imgSize = {
+    height: "100px",
+    width: "90px",
+    padding: "5px"
+  }
+
 
 
 
@@ -112,14 +118,46 @@ function SignupForm({ handleModalClose }) {
           <text>Choose your avatar:</text>
         </Form.Group>
         <div className="iconSet">
-          <Image type="radio" id="purple" src={PurpleIcon} thumbnail />
-          <Image id="pink" src={PinkIcon} thumbnail />
-          <Image id="yellow" src={YellowIcon} thumbnail />
-          <Image id="orange" src={OrangeIcon} thumbnail />
-          <Image id="charcoal" src={CharcoalIcon} thumbnail />
-          <Image id="smoke" src={SmokeIcon} thumbnail />
-          <Image id="red" src={RedIcon} thumbnail />
-          <Image id="blue" src={BlueIcon} thumbnail />
+          <Image
+            id="purple"
+            src={PurpleIcon}
+            alt="purple"
+            style={imgSize} />
+
+          <Image id="pink"
+            src={PinkIcon}
+            alt="pink"
+            style={imgSize} />
+
+          <Image id="yellow"
+            src={YellowIcon}
+            alt="yellow"
+            style={imgSize} />
+
+          <Image id="orange"
+            src={OrangeIcon}
+            alt="orange"
+            style={imgSize} />
+
+          <Image id="charcoal"
+            src={CharcoalIcon}
+            alt="charcoal"
+            style={imgSize} />
+
+          <Image id="smoke"
+            src={SmokeIcon}
+            alt="smoke"
+            style={imgSize} />
+
+          <Image id="red"
+            src={RedIcon}
+            alt="red"
+            style={imgSize} />
+
+          <Image id="blue"
+            src={BlueIcon}
+            alt="blue"
+            style={imgSize} />
 
         </div>
         <Button
