@@ -22,21 +22,25 @@ export const loginUser = function (userData) {
   return axios.post('/api/users/login', userData);
 };
 
-// save book data for a logged in user
-export const saveBook = function (bookData, token) {
-  return axios.put('/api/users', bookData, { headers: { authorization: `Bearer ${token}` } });
-};
+// save post data for a logged in user
+
 export const savePost = function (postData, token) {
   return axios.put('/api/users', postData, { headers: { authorization: `Bearer ${token}` } });
 };
 
 // remove saved book data for a logged in user
-export const deleteBook = function (bookId, token) {
-  return axios.delete(`/api/users/books/${bookId}`, { headers: { authorization: `Bearer ${token}` } });
+export const deleteBook = function (postId, token) {
+  return axios.delete(`/api/users/posts/${postId}`, { headers: { authorization: `Bearer ${token}` } });
 };
 
-// make a search to google books api
-// https://www.googleapis.com/books/v1/volumes?q=harry+potter
-export const searchGoogleBooks = function (query) {
-  return axios.get('https://www.googleapis.com/books/v1/volumes', { params: { q: query } });
+export const getPost = function (postId) {
+  return axios.get(`/api/posts/${postId}`);
+};
+
+export const getAllPosts = function (username) {
+  return axios.get(`/api/posts`);
+};
+
+export const searchPosts = function (searchInput) {
+  return axios.get(`/api/posts/${searchInput}`);
 };

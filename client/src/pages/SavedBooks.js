@@ -37,7 +37,7 @@ function SavedBooks() {
         <h2>
           {userData.savedPosts.length
             ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'post' : 'posts'}:`
-            : 'You have no saved books!'}
+            : 'You have no saved posts!'}
         </h2>
         <CardColumns>
           {userData.savedPosts.map((post) => {

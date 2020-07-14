@@ -49,7 +49,7 @@ function SignupForm({ handleModalClose }) {
       });
   };
 
- 
+
 
   return (
     <>
@@ -110,7 +110,7 @@ function SignupForm({ handleModalClose }) {
             <Form.Check type="radio" label="Blue" />
           </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password && userFormData.icon)}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit

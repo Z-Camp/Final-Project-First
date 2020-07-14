@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import UserInfoContext from '../utils/UserInfoContext';
-import { savePost } from '../utils/API';
+import { savePost } from '../utils/API.mjs';
 import AuthService from '../utils/auth';
 
 function PostForm({ handleModalClose }) {
