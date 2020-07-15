@@ -3,6 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import CardGroup from 'react-bootstrap/CardGroup'
 
+const styles = {
+    button: {
+      backgroundColor: "#a0d080"
+    }
+  }
 function FrontPagePosts(props) {
     return (
         <CardGroup>
@@ -13,7 +18,7 @@ function FrontPagePosts(props) {
                     <Card.Text>
                         First few words from post{props.postText}
                     </Card.Text>
-                    <Button variant="primary">Go to Post</Button>
+                    <Button style={styles.button} variant="primary">Go to Post</Button>
                 </Card.Body>
                 <Card.Footer className="text-muted">2 days ago{props.updated}</Card.Footer>
             </Card>

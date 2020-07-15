@@ -13,6 +13,12 @@ import RedIcon from './userIcons/red.png';
 import SmokeIcon from './userIcons/smoke.png';
 import YellowIcon from './userIcons/yellow.png';
 
+const styles = {
+  button: {
+    backgroundColor: "#a0d080"
+  }
+}
+
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
@@ -161,6 +167,7 @@ function SignupForm({ handleModalClose }) {
 
         </div>
         <Button
+          style={styles.button}
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
