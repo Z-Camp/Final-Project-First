@@ -23,11 +23,9 @@ const userSchema = new Schema(
 			required: true,
 		},
 		avatar: {
-      link:{
-        type: String,
-        required: true,
-        default: "https://img.icons8.com/wired/64/000000/penis.png"
-      }
+			type: String,
+			required: true,
+			default: "https://img.icons8.com/wired/64/000000/penis.png"
     },
 		// savedPosts/Comments will be arrays of posts/comments by the user that will follow their relative schemas
 		savedPosts: [PostSchema],

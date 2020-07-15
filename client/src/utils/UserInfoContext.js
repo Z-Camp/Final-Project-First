@@ -10,6 +10,7 @@ const UserInfoContext = React.createContext({
   email: '',
   postCount: 0,
   commentCount: 0,
+  avatar: '',
   getUserData: () => undefined,
 });
 
