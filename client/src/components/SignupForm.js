@@ -13,6 +13,12 @@ import RedIcon from './userIcons/red.png';
 import SmokeIcon from './userIcons/smoke.png';
 import YellowIcon from './userIcons/yellow.png';
 
+const styles = {
+  button: {
+    backgroundColor: "#a0d080"
+  }
+}
+
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
@@ -69,119 +75,106 @@ function SignupForm({ handleModalClose }) {
     console.log(e.target.id)
   };
 
-    return (
-      <>
-        {/* This is needed for the validation functionality above */}
-        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-          {/* show alert if server response is bad */}
-          <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-            {errorText || 'Something went wrong with your signup!'}
-          </Alert>
+  return (
+    <>
+      {/* This is needed for the validation functionality above */}
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        {/* show alert if server response is bad */}
+        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+          {errorText || 'Something went wrong with your signup!'}
+        </Alert>
 
-          <Form.Group>
-            <Form.Label htmlFor='username'>Username</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Your username'
-              name='username'
-              onChange={handleInputChange}
-              value={userFormData.username}
-              required
-            />
-            <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
-          </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your username'
+            name='username'
+            onChange={handleInputChange}
+            value={userFormData.username}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+        </Form.Group>
 
-          <Form.Group>
-            <Form.Label htmlFor='email'>Email</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Your email address'
-              name='email'
-              onChange={handleInputChange}
-              value={userFormData.email}
-              required
-            />
-            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-          </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Control
+            type='email'
+            placeholder='Your email address'
+            name='email'
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+        </Form.Group>
 
-          <Form.Group>
-            <Form.Label htmlFor='password'>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Your password'
-              name='password'
-              onChange={handleInputChange}
-              value={userFormData.password}
-              required
-            />
-            <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-          </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Control
+            type='password'
+            placeholder='Your password'
+            name='password'
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group controlId="iconCheckbox" name="iconSelector">
+          <text>Choose your avatar:</text>
+        </Form.Group>
+        <div className="iconSet">
+          <Image
+            id="purple"
+            src={PurpleIcon}
+            alt="purple"
+            style={imgSize} />
 
-          <div className="iconSet" value={userFormData.icon} required>
-            <text>Choose your avatar:</text>
-            <p></p>
-            <Image
-              onClick={e=>userPicked(e)}
-              id="purple_icon"
-              src={PurpleIcon}
-              alt="purple"
-              style={imgSize} />
+          <Image id="pink"
+            src={PinkIcon}
+            alt="pink"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="pink_icon"
-              src={PinkIcon}
-              alt="pink"
-              style={imgSize} />
+          <Image id="yellow"
+            src={YellowIcon}
+            alt="yellow"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="yellow_icon"
-              src={YellowIcon}
-              alt="yellow"
-              style={imgSize} />
+          <Image id="orange"
+            src={OrangeIcon}
+            alt="orange"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="orange_icon"
-              src={OrangeIcon}
-              alt="orange"
-              style={imgSize} />
+          <Image id="charcoal"
+            src={CharcoalIcon}
+            alt="charcoal"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="charcoal_icon"
-              src={CharcoalIcon}
-              alt="charcoal"
-              style={imgSize} />
+          <Image id="smoke"
+            src={SmokeIcon}
+            alt="smoke"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="smoke_icon"
-              src={SmokeIcon}
-              alt="smoke"
-              style={imgSize} />
+          <Image id="red"
+            src={RedIcon}
+            alt="red"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="red_icon"
-              src={RedIcon}
-              alt="red"
-              style={imgSize} />
+          <Image id="blue"
+            src={BlueIcon}
+            alt="blue"
+            style={imgSize} />
 
-            <Image
-              onClick={e=>userPicked(e)}
-              id="blue_icon"
-              src={BlueIcon}
-              alt="blue"
-              style={imgSize} />
+        </div>
+        <Button
+          style={styles.button}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          type='submit'
+          variant='success'>
+          Submit
 
-          </div>
-          <Button
-            disabled={!(userFormData.username && userFormData.email && userFormData.password && userFormData.icon)}
-            type='submit'
-            variant='success'>
-            Submit
         </Button>
         </Form>
       </>
