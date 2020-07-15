@@ -67,11 +67,13 @@ function SignupForm({ handleModalClose }) {
   const imgSize = {
     height: "100px",
     width: "90px",
-    padding: "5px"
-  }
+    padding: "5px",
 
+  };
 
-
+  const userPicked = e => {
+    console.log(e.target.id)
+  };
 
   return (
     <>
@@ -172,10 +174,11 @@ function SignupForm({ handleModalClose }) {
           type='submit'
           variant='success'>
           Submit
-        </Button>
-      </Form>
-    </>
-  );
-}
 
-export default SignupForm;
+        </Button>
+        </Form>
+      </>
+    );
+  }
+
+  export default SignupForm;
