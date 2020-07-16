@@ -22,10 +22,6 @@ export const loginUser = function (userData) {
   return axios.post('/api/users/login', userData);
 };
 
-// save book data for a logged in user
-export const saveBook = function (bookData, token) {
-  return axios.put('/api/users', bookData, { headers: { authorization: `Bearer ${token}` } });
-};
 export const savePost = function (postData, token) {
   return axios.put('/api/users', postData, { headers: { authorization: `Bearer ${token}` } });
 };
@@ -36,5 +32,5 @@ export const deletePost = function (bookId, token) {
 };
 
 export const getAllPosts = function() {
-  return axios.get('api/posts')
-}
+  return axios.get('/api/posts')
+  ;}

@@ -7,6 +7,19 @@ import PostForm from './PostForm';
 
 import UserInfoContext from '../utils/UserInfoContext';
 import AuthService from '../utils/auth';
+const styles = {
+  navbar: {
+    backgroundColor: "white",
+    borderBottomStyle: "solid",
+    borderBottomColor: "#a0d080",
+    paddingBottom: "0px"
+  },
+  image: {
+    marginLeft: "35px",
+    height: "50px"
+    
+  }
+}
 
 function AppNavbar() {
   // set modal display state
@@ -18,10 +31,10 @@ function AppNavbar() {
 
   return (
     <>
-      <Navbar bg='light' variant='light' expand='lg'>
+      <Navbar className="navbar" style={styles.navbar} expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Saiddit
+          <img className="image" src="./icons/main-icon.png" alt="icon" style={styles.image}></img>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>

@@ -40,6 +40,7 @@ function App() {
 		allPosts:[],
 		getAllPosts: () => {
 			API.getAllPosts()
+				.then()
 				.then(({ data: { allPosts } }) =>
 					setPostInfo({ ...postInfo, allPosts })
 				)

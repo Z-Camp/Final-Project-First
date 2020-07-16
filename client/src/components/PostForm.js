@@ -5,6 +5,12 @@ import UserInfoContext from '../utils/UserInfoContext';
 import { savePost } from '../utils/API';
 import AuthService from '../utils/auth';
 
+const styles = {
+  button: {
+    backgroundColor: "#a0d080"
+  }
+}
+
 function PostForm({ handleModalClose }) {
   // set initial form state
   const [postFormData, setPostFormData] = useState({image: '', link: '', title: '', postText: ''});
@@ -90,6 +96,7 @@ function PostForm({ handleModalClose }) {
           <Form.Control.Feedback type='invalid'>Post text is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
+          style={styles.button}
           disabled={!(postFormData.title && postFormData.postText)}
           type='submit'
           variant='success'>

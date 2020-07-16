@@ -31,11 +31,11 @@ function Profile() {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+
         <Container>
           <h1>{userData.username}'s Profile</h1>
         </Container>
-      </Jumbotron>
+
 
       <Container>
         <h2>

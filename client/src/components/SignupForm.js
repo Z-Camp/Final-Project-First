@@ -13,6 +13,12 @@ import RedIcon from './userIcons/red.png';
 import SmokeIcon from './userIcons/smoke.png';
 import YellowIcon from './userIcons/yellow.png';
 
+const styles = {
+  button: {
+    backgroundColor: "#a0d080"
+  }
+}
+
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
@@ -61,11 +67,13 @@ function SignupForm({ handleModalClose }) {
   const imgSize = {
     height: "100px",
     width: "90px",
-    padding: "5px"
-  }
+    padding: "5px",
 
+  };
 
-
+  const userPicked = e => {
+    console.log(e.target.id)
+  };
 
   return (
     <>
@@ -161,14 +169,16 @@ function SignupForm({ handleModalClose }) {
 
         </div>
         <Button
+          style={styles.button}
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
-        </Button>
-      </Form>
-    </>
-  );
-}
 
-export default SignupForm;
+        </Button>
+        </Form>
+      </>
+    );
+  }
+
+  export default SignupForm;

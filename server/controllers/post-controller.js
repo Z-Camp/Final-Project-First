@@ -1,19 +1,21 @@
 // import models
-const { Post, User } = require("../models");
+const Post = require("../models/Post");
 
 module.exports = {
   // get all users
   async getAllPosts(req, res) {
+    const allPosts= [];
     const posts = await Post.find();
-    return res.json(posts);
+    allPosts.push(posts)
+    return res.json(allPosts);
   },
   // get a single user by either their id or their username
   async getSinglePost({ user = null, params }, res) {
-    const foundUser = await User.findOne({
+    const foundPost = await Post.findOne({
       $or: [{ aithorID: user ? user._id : params.id }, { author: params.username }],
     });
 
-    if (!foundUser) {
+    if (!foundPost) {
       return res.status(400).json({ message: 'Cannot find a post with this id!' });
     }
 
