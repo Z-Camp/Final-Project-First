@@ -43,7 +43,7 @@ function App() {
 	});
 	function loadPosts() {
 		API.getAllPosts()
-			.then(res =>setPostInfo({AllPosts: [res]}))
+			.then(res =>setPostInfo({AllPosts: res.data }))
 			.catch((err) => console.log(err));
 	}
 
