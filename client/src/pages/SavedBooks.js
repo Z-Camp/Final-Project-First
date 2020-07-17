@@ -31,11 +31,13 @@ function SavedBooks() {
 
   return (
     <>
-      
-        <Container>
+
+      <Container>
+        <Row className="justify-content-center">
           <h1>{userData.username}'s Profile</h1>
-        </Container>
-     
+        </Row>
+      </Container>
+
 
       <Container>
         <h2>
@@ -71,8 +73,12 @@ function SavedBooks() {
             </CardGroup>
           </Col>
           <Col md={4}>
-            <UserCard />
-          
+            
+            <UserCard 
+            username={userData.username}
+            postcount={userData.savedPosts.length}
+            commentcount={userData.savedComments.length} />
+              
           </Col>
         </Row>
       </Container>
