@@ -14,7 +14,7 @@ function PostCard(props) {
   return (
     <CardGroup>
     <Card className="text-center">
-      <Card.Header>{props.author}</Card.Header>
+      <Card.Header style={styles.button}>{props.author}</Card.Header>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>
@@ -22,7 +22,7 @@ function PostCard(props) {
         </Card.Text>
         <Button style={styles.button} variant="primary">Go to Post</Button>
       </Card.Body>
-      <Card.Footer className="text-muted">Updated:{props.updated}</Card.Footer>
+      <Card.Footer style={styles.button} className="text-muted">Updated:{props.updated}</Card.Footer>
     </Card>
     </CardGroup>
 

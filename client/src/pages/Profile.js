@@ -32,9 +32,11 @@ function Profile() {
   return (
     <>
 
-        <Container>
+      <Container>
+        <Row className="justify-content-center">
           <h1>{userData.username}'s Profile</h1>
-        </Container>
+        </Row>
+      </Container>
 
 
       <Container>
