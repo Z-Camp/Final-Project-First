@@ -17,9 +17,8 @@ const styles = {
   image: {
     marginLeft: "35px",
     height: "50px"
-    
+    }
   }
-}
 
 function AppNavbar() {
   // set modal display state
@@ -46,7 +45,7 @@ function AppNavbar() {
               {username ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    See {username}'s Profile
+                    {username}'s Profile
                   </Nav.Link>
                   <Nav.Link onClick={() => setShowPostModal(true)}>New Post</Nav.Link>
                   <Nav.Link onClick={AuthService.logout}>Logout</Nav.Link>
@@ -93,7 +92,7 @@ function AppNavbar() {
             <Modal.Title id='post-modal'>
               <Nav variant='pills'>
                 <Nav.Item>
-                  <Nav.Link eventKey='post'>New Post</Nav.Link>
+                  <Nav.Link className="modalPost"  eventKey='post'>New Post</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>

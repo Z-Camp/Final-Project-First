@@ -1,13 +1,16 @@
 // import models
 const Post = require("../models/Post");
+const { response } = require("express");
 
 module.exports = {
   // get all users
   async getAllPosts(req, res) {
-    const allPosts= [];
+    // const allPosts= [];
     const posts = await Post.find();
-    allPosts.push(posts)
-    return res.json(allPosts);
+    // posts.map((post)=> {
+    //   allPosts.push(post)
+    // })
+    return res.json(posts);
   },
   // get a single user by either their id or their username
   async getSinglePost({ user = null, params }, res) {
