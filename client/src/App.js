@@ -39,38 +39,20 @@ function App() {
 		},
 	});
 	const [postInfo, setPostInfo] = useState({
-<<<<<<< HEAD
-		allPosts: [],
-		getAllPosts: () => {
-			API.getAllPosts()
-				.then()
-				.then(({ data: { allPosts } }) =>
-					setPostInfo({ ...postInfo, allPosts })
-				)
-				.catch((err) => console.log(err));
-		},
-=======
-		AllPosts:[]
->>>>>>> 9050eb0f941cc3fc2dd9181807f66d63637b4bed
+		AllPosts: []
 	});
 	function loadPosts() {
 		API.getAllPosts()
-			.then(res =>setPostInfo({AllPosts: res.data }))
+			.then(res => setPostInfo({ AllPosts: res.data }))
 			.catch((err) => console.log(err));
 	}
 
 
 	// on load, get user data if a token exists
 	useEffect(() => {
-<<<<<<< HEAD
 		userInfo.getUserData();
-		postInfo.getAllPosts()
-	});
-=======
-	userInfo.getUserData();
-	loadPosts()
-	},[]);
->>>>>>> 9050eb0f941cc3fc2dd9181807f66d63637b4bed
+		loadPosts()
+	}, []);
 
 	return (
 		<Router>

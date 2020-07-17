@@ -33,13 +33,9 @@ function Profile() {
     <>
 
       <Container>
-<<<<<<< HEAD
-        <h1>{userData.username}'s Profile</h1>
-=======
         <Row className="justify-content-center">
           <h1>{userData.username}'s Profile</h1>
         </Row>
->>>>>>> 9050eb0f941cc3fc2dd9181807f66d63637b4bed
       </Container>
 
 
