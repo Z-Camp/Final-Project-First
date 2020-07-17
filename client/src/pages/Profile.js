@@ -11,19 +11,19 @@ import AuthService from '../utils/auth';
 
 
 
-function SavedBooks() {
+function Profile() {
   // get whole userData state object from App.js
   const userData = useContext(UserInfoContext);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeletePost = (bookId) => {
+  const handleDeletePost = (postId) => {
     // get token
     const token = AuthService.loggedIn() ? AuthService.getToken() : null;
 
     if (!token) {
       return false;
     }
-    API.deleteBook(bookId, token)
+    API.deletePost(postId, token)
       // upon succes, update user data to reflect book change
       .then(() => userData.getUserData())
       .catch((err) => console.log(err));
@@ -43,24 +43,13 @@ function SavedBooks() {
         <h2>
           {userData.savedPosts.length
             ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'post' : 'posts'}:`
-            : 'You have no saved books!'}
+            : 'You have not submitted any Posts!'}
         </h2>
         <Row>
           <Col md={8}>
             <CardGroup>
               {userData.savedPosts.map((post) => {
                 return (
-                  // <Card key={post.postId} border='dark'>
-                  //   {post.image ? <Card.Img src={post.image} alt={`The cover for ${post.title}`} variant='top' /> : null}
-                  //   <Card.Body>
-                  //     <Card.Title>{post.title}</Card.Title>
-                  //     <p className='small'>Authors: {post.author}</p>
-                  //     <Card.Text>{post.postText}</Card.Text>
-                  //     <Button className='btn-block btn-danger' onClick={() => handleDeletePost(post.postId)}>
-                  //       Delete this Post!
-                  //     </Button>
-                  //   </Card.Body>
-                  // </Card>
                   <PostCard
                     key={post.postId}
                     author={post.author}
@@ -73,12 +62,12 @@ function SavedBooks() {
             </CardGroup>
           </Col>
           <Col md={4}>
-            
-            <UserCard 
-            username={userData.username}
-            postcount={userData.postCount}
-            commentcount={userData.commentCount} />
-              
+            <UserCard
+              username={userData.username}
+              avatar={userData.avatar}
+              postCount={userData.postCount}
+              commentCount={userData.commentCount}
+            />
           </Col>
         </Row>
       </Container>
@@ -88,4 +77,4 @@ function SavedBooks() {
   );
 }
 
-export default SavedBooks;
+export default Profile;
