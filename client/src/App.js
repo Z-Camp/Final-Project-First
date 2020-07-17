@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, setState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import FrontPage from './pages/FrontPage';
 import Profile from './pages/Profile';
+import LandingPage from './pages/landingPage'
 import Navbar from './components/Navbar';
+
 
 import * as API from './utils/API';
 import AuthService from './utils/auth';
@@ -37,22 +39,20 @@ function App() {
 		},
 	});
 	const [postInfo, setPostInfo] = useState({
-		allPosts:[],
-		getAllPosts: () => {
-			API.getAllPosts()
-				.then()
-				.then(({ data: { allPosts } }) =>
-					setPostInfo({ ...postInfo, allPosts })
-				)
-				.catch((err) => console.log(err));
-		},
+		AllPosts:[]
 	});
+	function loadPosts() {
+		API.getAllPosts()
+			.then(res =>setPostInfo({AllPosts: [res]}))
+			.catch((err) => console.log(err));
+	}
+
 
 	// on load, get user data if a token exists
 	useEffect(() => {
 	userInfo.getUserData();
-	postInfo.getAllPosts()
-	});
+	loadPosts()
+	},[]);
 
 	return (
 		<Router>
