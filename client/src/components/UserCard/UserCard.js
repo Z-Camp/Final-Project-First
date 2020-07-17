@@ -21,13 +21,16 @@ const styles = {
     borderStyle: "solid",
     borderColor: "#bfd730",
     borderRadius: "5px"
+  },
+  footimage: {
+    paddingTop: "7px"
   }
 
 
 }
 function UserCard(props) {
   return (
-    <div className="card">
+    <div className="card" id="usercard">
       <div clasName="header" style={styles.header}></div>
       <div className="img-container">
         <img className="img" alt="img" src={props.avatar} style={styles.img} />
@@ -42,8 +45,8 @@ function UserCard(props) {
 
         </div>
 
-      <div className="footer" style={styles.footer}></div>
-    </div>
+        <div className="footer" style={styles.footer}></div>
+      </div>
     </div>
   );
 }

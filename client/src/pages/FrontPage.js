@@ -6,18 +6,19 @@ import AuthService from '../utils/auth';
 import FrontPagePosts from '../components/FrontPage/FrontPagePosts';
 
 function FrontPage() {
-const postData = useContext(PostContext);
+  const postData = useContext(PostContext);
 
-postData.allPosts.map((post)=> {
-  return (
-   <FrontPagePosts
-      key={post.postId}
-      author={post.author}
-      title={post.title}
-      postText={post.postText}
-      updated={post.updated}
-   ></FrontPagePosts>
-  );})
+  postData.allPosts.map((post) => {
+    return (
+      <FrontPagePosts
+        key={post.postId}
+        author={post.author}
+        title={post.title}
+        postText={post.postText}
+        updated={post.updated}
+      ></FrontPagePosts>
+    );
+  })
 
 }
 

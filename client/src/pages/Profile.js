@@ -32,9 +32,9 @@ function Profile() {
   return (
     <>
 
-        <Container>
-          <h1>{userData.username}'s Profile</h1>
-        </Container>
+      <Container>
+        <h1>{userData.username}'s Profile</h1>
+      </Container>
 
 
       <Container>

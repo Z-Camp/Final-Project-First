@@ -20,7 +20,7 @@ function App() {
 		email: '',
 		postCount: 0,
 		commentCount: 0,
-		avatar:'',
+		avatar: '',
 		// method to get user data after logging in
 		getUserData: () => {
 			// if user's logged in get the token or return null
@@ -37,7 +37,7 @@ function App() {
 		},
 	});
 	const [postInfo, setPostInfo] = useState({
-		allPosts:[],
+		allPosts: [],
 		getAllPosts: () => {
 			API.getAllPosts()
 				.then()
@@ -50,8 +50,8 @@ function App() {
 
 	// on load, get user data if a token exists
 	useEffect(() => {
-	userInfo.getUserData();
-	postInfo.getAllPosts()
+		userInfo.getUserData();
+		postInfo.getAllPosts()
 	});
 
 	return (
