@@ -76,8 +76,8 @@ function SavedBooks() {
             
             <UserCard 
             username={userData.username}
-            postcount={userData.savedPosts.length}
-            commentcount={userData.savedComments.length} />
+            postcount={userData.postCount}
+            commentcount={userData.commentCount} />
               
           </Col>
         </Row>
