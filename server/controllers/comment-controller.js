@@ -13,7 +13,6 @@ module.exports = {
         next();
     },
 
-    //single user by either their id or their username
     createComment = async (req, res, next) => {
         try {
             const post = await req.post.addComment(req.user.id, req.body.comment);
