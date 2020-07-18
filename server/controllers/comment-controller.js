@@ -3,7 +3,7 @@ const Comment = require("../models/Comment");
 
 
 module.exports = {
-    loadComments = async (req, res, next, id) => {
+    async loadComments(req, res, next, id) {
         try {
             req.comment = await req.post.comments.id(id);
             if (!req.comment) return next(new Error('comment not found'));
@@ -13,7 +13,7 @@ module.exports = {
         next();
     },
 
-    createComment = async (req, res, next) => {
+    async createComment(req, res, next) {
         try {
             const post = await req.post.addComment(req.user.id, req.body.comment);
             res.status(201).json(post);
@@ -21,7 +21,7 @@ module.exports = {
             next(err);
         }
     },
-    deleteComment = async (req, res) => {
+    async deleteComment(req, res) {
         try {
             const post = await req.post.removeComment(req.params.comment);
             res.json(post);

@@ -15,7 +15,7 @@ module.exports = {
   // get a single user by either their id or their username
   async getSinglePost({ user = null, params }, res) {
     const foundPost = await Post.findOne({
-      $or: [{ aithorID: user ? user._id : params.id }, { author: params.username }],
+      $or: [{ authorID: user ? user._id : params.id }, { author: params.username }],
     });
 
     if (!foundPost) {
@@ -24,8 +24,8 @@ module.exports = {
 
     res.json(foundUser);
   },
-  async searchPosts(req, res){
-      const searchedPosts = await Post.find({title:`/${req}/i`});
-      return res.json(searchedPosts);
+  async searchPosts(req, res) {
+    const searchedPosts = await Post.find({ title: `/${req}/i` });
+    return res.json(searchedPosts);
   }
 };
