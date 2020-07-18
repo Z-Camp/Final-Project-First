@@ -12,7 +12,7 @@ const styles = {
   }
 }
 function FrontPage() {
-const postData = useContext(PostContext);
+  const postData = useContext(PostContext);
 
   return (
     <Container style={styles.col}>
@@ -21,7 +21,7 @@ const postData = useContext(PostContext);
          <Row >
            <Col style={styles.col}>
           <FrontPagePosts
-            key={post._Id}
+            key={post._id}
             author={post.author}
             title={post.title}
             postText={post.postText}

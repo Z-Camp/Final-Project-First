@@ -45,12 +45,12 @@ function UserCard(props) {
 
         </div>
 
-      <div className="footer" style={styles.footer}>
-        <Row className="justify-content-center">
-      <img className="footimage" src="./icons/favicon-32x32.png" alt="icon" style={styles.footimage}></img>
-      </Row>
+        <div className="footer" style={styles.footer}>
+          <Row className="justify-content-center">
+            <img className="footimage" src="./icons/favicon-32x32.png" alt="icon" style={styles.footimage}></img>
+          </Row>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

@@ -4,22 +4,22 @@ const CommentSchema = require('./Comment.js').schema;
 
 const PostSchema = new Schema({
     author: {
-		type: String,
-		required: true,
-	},
+        type: String,
+        required: true,
+    },
     authorID: {
         type: String,
         required: true,
     },
-	image: {
-		type: String,
-	},
-	link: {
-		type: String,
-	},
-	title: {
-		type: String,
-		required: true,
+    image: {
+        type: String,
+    },
+    link: {
+        type: String,
+    },
+    title: {
+        type: String,
+        required: true,
     },
     postText: {
         type: String,

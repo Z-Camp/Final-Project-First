@@ -16,14 +16,14 @@ function Profile() {
   const userData = useContext(UserInfoContext);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeletePost = (postId) => {
+  const handleDeletePost = (postID) => {
     // get token
     const token = AuthService.loggedIn() ? AuthService.getToken() : null;
 
     if (!token) {
       return false;
     }
-    API.deletePost(postId, token)
+    API.deletePost(postID, token)
       // upon succes, update user data to reflect book change
       .then(() => userData.getUserData())
       .catch((err) => console.log(err));
@@ -51,7 +51,7 @@ function Profile() {
               {userData.savedPosts.map((post) => {
                 return (
                   <PostCard
-                    key={post.postId}
+                    key={post.postID}
                     author={post.author}
                     title={post.title}
                     postText={post.postText}

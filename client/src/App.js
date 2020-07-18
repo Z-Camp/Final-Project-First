@@ -22,7 +22,7 @@ function App() {
 		email: '',
 		postCount: 0,
 		commentCount: 0,
-		avatar:'',
+		avatar: '',
 		// method to get user data after logging in
 		getUserData: () => {
 			// if user's logged in get the token or return null
@@ -39,20 +39,20 @@ function App() {
 		},
 	});
 	const [postInfo, setPostInfo] = useState({
-		AllPosts:[]
+		AllPosts: []
 	});
 	function loadPosts() {
 		API.getAllPosts()
-			.then(res =>setPostInfo({AllPosts: res.data }))
+			.then(res => setPostInfo({ AllPosts: res.data }))
 			.catch((err) => console.log(err));
 	}
 
 
 	// on load, get user data if a token exists
 	useEffect(() => {
-	userInfo.getUserData();
-	loadPosts()
-	},[]);
+		userInfo.getUserData();
+		loadPosts()
+	}, []);
 
 	return (
 		<Router>
