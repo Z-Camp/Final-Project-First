@@ -56,6 +56,7 @@ function Profile() {
                     title={post.title}
                     postText={post.postText}
                     updated={post.updated} >
+                    
                   </PostCard>
                 );
               })}
