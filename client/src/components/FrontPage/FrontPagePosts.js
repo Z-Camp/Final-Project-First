@@ -5,9 +5,9 @@ import CardGroup from 'react-bootstrap/CardGroup'
 
 const styles = {
     button: {
-      backgroundColor: "#a0d080"
+        backgroundColor: "#a0d080"
     }
-  }
+}
 function FrontPagePosts(props) {
     return (
         <CardGroup>

@@ -77,11 +77,11 @@ module.exports = {
   // remove a post from `savedPosts`
   async deletePost({ user, params }, res) {
     const deletePost = await Post.destroy({
-      _id: postId
+      _id: postID
     })
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      { $pull: { savedPosts: { postId: params.id } } },
+      { $pull: { savedPosts: { postID: params.id } } },
       { new: true }
     );
     if (!updatedUser) {
