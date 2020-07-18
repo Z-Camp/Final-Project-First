@@ -11,15 +11,11 @@ function FrontPage() {
 
   return (
     <Container>
-<<<<<<< HEAD
-      {postData.AllPosts.map((post) => {
-=======
-      {postData.AllPosts.reverse().map((post)=> {
->>>>>>> 1f4c9dbdf5a286a21fdf7254a5e1230e2e779430
+      {postData.AllPosts.reverse().map((post) => {
         return (
-         
+
           <FrontPagePosts
-            key={post._Id}
+            key={post._id}
             author={post.author}
             title={post.title}
             postText={post.postText}
