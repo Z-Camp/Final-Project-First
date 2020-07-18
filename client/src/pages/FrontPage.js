@@ -11,8 +11,9 @@ const postData = useContext(PostContext);
 
   return (
     <Container>
-      {postData.AllPosts.map((post)=> {
+      {postData.AllPosts.reverse().map((post)=> {
         return (
+         
           <FrontPagePosts
             key={post._Id}
             author={post.author}
