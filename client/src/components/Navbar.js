@@ -4,9 +4,9 @@ import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 import PostForm from './PostForm';
-
 import UserInfoContext from '../utils/UserInfoContext';
 import AuthService from '../utils/auth';
+
 const styles = {
   navbar: {
     backgroundColor: "white",
@@ -65,7 +65,7 @@ function AppNavbar() {
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
                 <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
+                  <Nav.Link className="newpost" eventKey='login'>Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
