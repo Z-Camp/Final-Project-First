@@ -16,3 +16,6 @@ h6 {
   font-weight: 300;
   font-style: italic;
 }
+.col1 {
+  flex-direction: column-reverse;
+}
