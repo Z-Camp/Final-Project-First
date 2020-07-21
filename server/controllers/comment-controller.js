@@ -13,12 +13,20 @@ module.exports = {
         next();
     },
 
-    async createComment(req, res, next) {
+    async createComment({ user, body }, res) {
+        console.log(user);
+        console.log(post);
         try {
-            const post = await req.post.addComment(req.user.id, req.body.comment);
-            res.status(201).json(post);
+            const newComment = await Comment.create({
+                author: user.username,
+                authorID: user._id,
+                postID: post._id,
+                commentText: body.commentText,
+            })
+            return res.json(newComment);
         } catch (err) {
-            next(err);
+            console.log(err)
+            return res.status(400).json(err);
         }
     },
     async deleteComment(req, res) {
