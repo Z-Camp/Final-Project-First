@@ -22,7 +22,7 @@ const styles = {
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', icon: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', avatar: '' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -72,6 +72,7 @@ function SignupForm({ handleModalClose }) {
   };
 
   const userPicked = e => {
+    setUserFormData({ ...userFormData, avatar: e.target.id });
     console.log(e.target.id)
   };
 
@@ -127,58 +128,89 @@ function SignupForm({ handleModalClose }) {
         </Form.Group>
         <div className="iconSet">
           <Image
+            onClick={e => userPicked(e)}
             id="purple"
             src={PurpleIcon}
             alt="purple"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
-          <Image id="pink"
+          <Image
+            onClick={e => userPicked(e)}
+            id="pink"
             src={PinkIcon}
             alt="pink"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar} 
+             />
 
-          <Image id="yellow"
+          <Image
+            onClick={e => userPicked(e)}
+            id="yellow"
             src={YellowIcon}
             alt="yellow"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
-          <Image id="orange"
+          <Image
+            onClick={e => userPicked(e)}
+            id="orange"
             src={OrangeIcon}
             alt="orange"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
-          <Image id="charcoal"
+          <Image
+            onClick={e => userPicked(e)}
+            id="charcoal"
             src={CharcoalIcon}
             alt="charcoal"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
-          <Image id="smoke"
+          <Image
+            onClick={e => userPicked(e)}
+            id="smoke"
             src={SmokeIcon}
             alt="smoke"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
-          <Image id="red"
+          <Image
+            onClick={e => userPicked(e)}
+            id="red"
             src={RedIcon}
             alt="red"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
-          <Image id="blue"
+          <Image
+            onClick={e => userPicked(e)}
+            id="blue"
             src={BlueIcon}
             alt="blue"
-            style={imgSize} />
+            style={imgSize}
+            value={userFormData.avatar}
+             />
 
         </div>
         <Button
           style={styles.button}
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password && userFormData.avatar)}
           type='submit'
           variant='success'>
           Submit
 
         </Button>
-        </Form>
-      </>
-    );
-  }
+      </Form>
+    </>
+  );
+}
 
-  export default SignupForm;
+export default SignupForm;
