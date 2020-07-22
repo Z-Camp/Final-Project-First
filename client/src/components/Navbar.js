@@ -100,7 +100,7 @@ function AppNavbar() {
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey='post'>
-                <PostForm handleModalClose={() => setShowModal(false)} />
+                <PostForm handleModalClose={() => setShowPostModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

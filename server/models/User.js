@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 // imprt schemas from Post.js and Comment.js
 const PostSchema = require('./Post.js').schema;
-const CommentSchema = require("./Comment.js").schema;
+const CommentSchema = require('./Comment.js').schema;
 
 const userSchema = new Schema(
 	{

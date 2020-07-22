@@ -5,12 +5,12 @@ const CommentSchema = new Schema({
         type: String,
         required: true,
     },
-    authorID: {
-        type: Number,
+    authorId: {
+        type: String,
         required: true,
     },
-    postID: {
-        type: Number,
+    postId: {
+        type: String,
         required: true,
     },
     commentText: {

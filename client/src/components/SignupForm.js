@@ -142,7 +142,7 @@ function SignupForm({ handleModalClose }) {
             src={PinkIcon}
             alt="pink"
             style={imgSize}
-            value={userFormData.avatar} 
+            value={userFormData.avatar}
              />
 
           <Image

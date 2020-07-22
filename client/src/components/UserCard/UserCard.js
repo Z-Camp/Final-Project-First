@@ -36,9 +36,11 @@ const styles = {
 function UserCard(props) {
 
   const avatarColor = require.context('../userIcons', true);
- 
+
 
   console.log(props)
+  const userIcons = require.context("../userIcons", true)
+
   return (
     <div
       className="card"

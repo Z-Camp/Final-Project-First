@@ -21,17 +21,20 @@ function FrontPage() {
          <Row >
            <Col style={styles.col}>
           <FrontPagePosts
-            key={post._id}
+            key={post.id}
             author={post.author}
+            link={post.link}
             title={post.title}
             postText={post.postText}
+            commentCount={post.commentCount}
+            postId={post._id}
             updated={post.updated} >
           </FrontPagePosts>
           </Col>
           </Row>
-          
-          
-         
+
+
+
         );
       })}
     </Container>
