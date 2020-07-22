@@ -7,9 +7,12 @@ const styles = {
     button: {
         backgroundColor: "#a0d080"
     },
-    headerFooter: {
+    header: {
         backgroundColor: "#bfd72e"
     },
+    footer: {
+        backgroundColor: "#a0d080"
+    }
 
 }
 function FrontPagePosts(props) {
@@ -19,7 +22,7 @@ function FrontPagePosts(props) {
     return (
         <CardGroup>
             <Card className="text-center">
-                <Card.Header style={styles.headerFooter}>{props.title}</Card.Header>
+                <Card.Header style={styles.header}>{props.title}</Card.Header>
                 <Card.Img src={props.link}cap  />
                 <Card.Body>
                     <Card.Text>Poster: {props.author}</Card.Text>
@@ -28,7 +31,7 @@ function FrontPagePosts(props) {
                     </Card.Text>
                     <Button style={styles.button} onClick={goToPost} postID={props.key} variant="primary">Go to Post</Button>
                 </Card.Body>
-                <Card.Footer style={styles.headerFooter} className="text-muted">Comments: {props.commentCount}   ||   Posted: {props.updated}</Card.Footer>
+                <Card.Footer style={styles.footer} className="text-muted">Comments: {props.commentCount}   ||   Posted: {props.updated}</Card.Footer>
             </Card>
         </CardGroup>
     )

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import {Container,Col,Form,Button,Card,CardColumns,Row,} from 'react-bootstrap';
 import PostContext from '../utils/PostContext';
 import AuthService from '../utils/auth';
-import SinglePostPage from '../components/SinglePostPage';
+import SinglePost from '../components/SinglePost';
 import * as API from '../utils/API';
 
 const styles = {
@@ -11,7 +11,7 @@ const styles = {
 		flexDirection: 'column-reverse',
 	},
 };
-function SinglePost() {
+function SinglePostPage() {
 	const postData = useContext(PostContext);
     let displayPostId = window.location.href.split("/")[4];
 
@@ -22,7 +22,7 @@ function SinglePost() {
 					return (
 						<Row>
 							<Col style={styles.col}>
-								<SinglePostPage
+								<SinglePost
 									key={post._id}
 									author={post.author}
 									title={post.title}
@@ -30,7 +30,7 @@ function SinglePost() {
                                     commentCount={post.commentCount}
                                     savedComments={post.savedComments}
 									updated={post.updated}
-								></SinglePostPage>
+								></SinglePost>
 							</Col>
 						</Row>
 					);
@@ -40,4 +40,4 @@ function SinglePost() {
 	);
 }
 
-export default SinglePost;
+export default SinglePostPage;

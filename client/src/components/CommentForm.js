@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import UserInfoContext from '../utils/UserInfoContext';
-import { savePost } from '../utils/API';
+import { addComment } from '../utils/API';
 import AuthService from '../utils/auth';
 
 const styles = {
@@ -13,7 +13,7 @@ const styles = {
 
 function CommentForm({ handleModalClose }) {
 	// set initial form state
-	const [commentFormData, setcommentFormData] = useState({ commentText: '' });
+	const [commentFormData, setcommentFormData] = useState({ commentText: '', postId: '' });
 	// set state for form validation
 	const [validated] = useState(true);
 	// set state for alert
@@ -22,6 +22,10 @@ function CommentForm({ handleModalClose }) {
 
 	// get context object from app.js
 	const userData = useContext(UserInfoContext);
+    let postId = window.location.href.split("/")[4];
+    useEffect(() => {
+        setcommentFormData({ postId: postId });
+    }, []);
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
@@ -37,10 +41,8 @@ function CommentForm({ handleModalClose }) {
 			e.preventDefault();
 			e.stopPropagation();
 		}
-
-		// send new user data to server, receiving the JWT and user data in return
-		savePost(commentFormData, AuthService.getToken())
-			.then(({ data: { post, user } }) => {
+		addComment(commentFormData, AuthService.getToken(), postId )
+			.then(({ data: { comment, user } }) => {
 				handleModalClose();
 			})
 			.catch((err) => {
@@ -61,7 +63,7 @@ function CommentForm({ handleModalClose }) {
 					show={showAlert}
 					variant="danger"
 				>
-					{errorText || 'Something went wrong while submitting your post!'}
+					{errorText || 'Something went wrong while submitting your comment!'}
 				</Alert>
 
 				<Form.Group>

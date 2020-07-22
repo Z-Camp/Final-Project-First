@@ -2,6 +2,7 @@
 const Post = require("../models/Post");
 const { response } = require("express");
 const Comment = require("../models/Comment");
+const { User } = require('../models');
 
 
 module.exports = {
@@ -33,11 +34,17 @@ module.exports = {
     try {
       const newComment = await Comment.create({
         author: user.username,
-        authorID: user._id,
+        authorId: user._id,
         commentText: body.commentText,
+        postId: body.postId
       })
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
+        { $addToSet: { savedComments: newComment } },
+        { new: true, runValidators: true }
+      )
+      const updatedPost = await Post.findOneAndUpdate(
+        { _id: body.postId },
         { $addToSet: { savedComments: newComment } },
         { new: true, runValidators: true }
       );

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
-import CommentCard from '../components/CommentCard/CommentCard';
+import CommentCard from './CommentCard/CommentCard';
 import UserInfoContext from '../utils/UserInfoContext';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import CommentForm from './CommentForm'
@@ -16,7 +16,7 @@ const styles = {
 	},
 	cardImage: {},
 };
-function SinglePostPage(props) {
+function SinglePost(props) {
 	const { username } = useContext(UserInfoContext);
 	const [showModal, setShowModal] = useState(false);
 
@@ -74,4 +74,4 @@ function SinglePostPage(props) {
 	);
 }
 
-export default SinglePostPage;
+export default SinglePost;
