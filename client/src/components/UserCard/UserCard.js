@@ -35,8 +35,9 @@ const styles = {
 
 function UserCard(props) {
 
-  const images = require.context('../userIcons', true);
-  let avatarColor = images(`./${props.avatar}.png`);
+  const avatarColor = require.context('../userIcons', true);
+ 
+
   console.log(props)
   return (
     <div
@@ -46,12 +47,13 @@ function UserCard(props) {
         clasName="header"
         style={styles.header}></div>
       <div className="img-container">
-        <img
-          className="img"
-          alt="img"
-          src={avatarColor}
-          style={styles.img}
-        />
+        <img className="img" alt="img"
+          src=
+          {props.avatar ? (
+            avatarColor(`./${props.avatar}.png`)) :
+        ('client/public/icons/apple-icon-57x57.png')
+        }
+        style={styles.img} />
       </div>
       <div
         className="content">
