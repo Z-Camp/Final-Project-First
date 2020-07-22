@@ -1,7 +1,8 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import CardGroup from 'react-bootstrap/CardGroup'
+import CardGroup from 'react-bootstrap/CardGroup';
+import moment from 'moment';
 
 const styles = {
     button: {
@@ -9,6 +10,7 @@ const styles = {
     }
 }
 function FrontPagePosts(props) {
+    const formattedDate = moment(props.updated).format('MM/DD/YYYY')
     return (
         <CardGroup>
             <Card className="text-center">
@@ -20,7 +22,7 @@ function FrontPagePosts(props) {
                     </Card.Text>
                     <Button style={styles.button} postID={props.key} variant="primary">Go to Post</Button>
                 </Card.Body>
-                <Card.Footer style={styles.button} className="text-muted">{props.updated}</Card.Footer>
+                <Card.Footer style={styles.button} className="text-muted">Updated: {formattedDate}</Card.Footer>
             </Card>
         </CardGroup>
     )
