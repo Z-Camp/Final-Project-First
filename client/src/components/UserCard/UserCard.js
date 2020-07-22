@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col'
 import "./style.css";
 
 
+
 const styles = {
   header: {
     background: "#a0d080",
@@ -29,17 +30,37 @@ const styles = {
 
 
 }
+
+
+
 function UserCard(props) {
+
+  const images = require.context('../userIcons', true);
+  let avatarColor = images(`./${props.avatar}.png`);
   console.log(props)
   return (
-    <div className="card" id="usercard">
-      <div clasName="header" style={styles.header}></div>
+    <div
+      className="card"
+      id="usercard">
+      <div
+        clasName="header"
+        style={styles.header}></div>
       <div className="img-container">
-        <img className="img" alt="img" src={props.avatar} style={styles.img} />
+        <img
+          className="img"
+          alt="img"
+          src={avatarColor}
+          style={styles.img}
+        />
       </div>
-      <div className="content">
-        <div className="username">User Name: {props.username}</div>
-        <div className="counts">
+      <div
+        className="content">
+        <div
+          className="username">
+          User Name: {props.username}
+        </div>
+        <div
+          className="counts">
           <Row>
             <Col md={5}>Posts: {props.postCount}</Col>
             <Col md={5}>Comments: {props.commentCount}</Col>
