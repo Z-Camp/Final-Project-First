@@ -4,6 +4,7 @@ import FrontPage from './pages/FrontPage';
 import Profile from './pages/Profile';
 import LandingPage from './pages/landingPage'
 import Navbar from './components/Navbar';
+import SinglePost from './pages/SinglePost';
 
 
 import * as API from './utils/API';
@@ -16,6 +17,7 @@ import PostContext from './utils/PostContext';
 function App() {
 	// set data to be used for UserInfoContext and make it available to all other components
 	const [userInfo, setUserInfo] = useState({
+		_id:'',
 		savedPosts: [],
 		savedComments: [],
 		username: '',
@@ -32,7 +34,7 @@ function App() {
 				return false;
 			}
 			API.getMe(token)
-				.then(({ data: { username, email, savedPosts, savedComments, postCount, commentCount, avatar } }) =>
+				.then(({ data: { username, email, savedPosts, savedComments, postCount, commentCount, avatar} }) =>
 					setUserInfo({ ...userInfo, username, email, savedPosts, savedComments, postCount, commentCount, avatar })
 				)
 				.catch((err) => console.log(err));
@@ -48,7 +50,6 @@ function App() {
 	}
 
 
-	// on load, get user data if a token exists
 	useEffect(() => {
 		userInfo.getUserData();
 		loadPosts()
@@ -64,6 +65,7 @@ function App() {
 						<Switch>
 							<Route exact path="/" component={FrontPage} />
 							<Route exact path="/saved" component={Profile} />
+							<Route path="/post/" component={SinglePost} />
 							<Route render={() => <h1 className="display-2">Wrong page!</h1>} />
 						</Switch>
 					</PostContext.Provider>

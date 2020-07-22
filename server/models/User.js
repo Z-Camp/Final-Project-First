@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 // imprt schemas from Post.js and Comment.js
 const PostSchema = require('./Post.js').schema;
-const CommentSchema = require("./Comment.js").schema;
+const CommentSchema = require('./Comment.js').schema;
 
 const userSchema = new Schema(
 	{
@@ -25,8 +25,8 @@ const userSchema = new Schema(
 		avatar: {
 			type: String,
 			required: true,
-			default: "https://img.icons8.com/wired/64/000000/penis.png"
-    },
+			default: 'https://img.icons8.com/wired/64/000000/penis.png',
+		},
 		// savedPosts/Comments will be arrays of posts/comments by the user that will follow their relative schemas
 		savedPosts: [PostSchema],
 		savedComments: [CommentSchema],
