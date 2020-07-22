@@ -1,7 +1,8 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
-import "./style.css"
+import "./style.css";
+
 
 const styles = {
   header: {
@@ -29,6 +30,7 @@ const styles = {
 
 }
 function UserCard(props) {
+  console.log(props)
   return (
     <div className="card" id="usercard">
       <div clasName="header" style={styles.header}></div>
