@@ -1,7 +1,9 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
-import "./style.css"
+import "./style.css";
+
+
 
 const styles = {
   header: {
@@ -28,16 +30,41 @@ const styles = {
 
 
 }
+
+
+
 function UserCard(props) {
+
+  const avatarColor = require.context('../userIcons', true);
+
+
+  console.log(props)
+  const userIcons = require.context("../userIcons", true)
+
   return (
-    <div className="card" id="usercard">
-      <div clasName="header" style={styles.header}></div>
+    <div
+      className="card"
+      id="usercard">
+      <div
+        clasName="header"
+        style={styles.header}></div>
       <div className="img-container">
-        <img className="img" alt="img" src={props.avatar} style={styles.img} />
+        <img className="img" alt="img"
+          src=
+          {props.avatar ? (
+            avatarColor(`./${props.avatar}.png`)) :
+        ('client/public/icons/apple-icon-57x57.png')
+        }
+        style={styles.img} />
       </div>
-      <div className="content">
-        <div className="username">User Name: {props.username}</div>
-        <div className="counts">
+      <div
+        className="content">
+        <div
+          className="username">
+          User Name: {props.username}
+        </div>
+        <div
+          className="counts">
           <Row>
             <Col md={5}>Posts: {props.postCount}</Col>
             <Col md={5}>Comments: {props.commentCount}</Col>

@@ -44,3 +44,11 @@ export const createComment = function (postID, comment, token) {
 export const deleteComment = function (postID, comment) {
   return axios.delete(`/api/post/${postID}/${comment},`)
 }
+
+export const deleteComment = function (postID, comment) {
+  return axios.delete(`/api/${postID}/${comment},`)
+}
+
+export const getPost = function (postId) {
+  return axios.get(`/api/posts/${postId}`);
+};

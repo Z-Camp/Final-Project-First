@@ -31,8 +31,15 @@ const PostSchema = new Schema({
         required: true,
         default: Date.now,
     },
-    savedComments: []
-});
+    savedComments: [CommentSchema],
+    },
+	// set this to use virtual below
+	{
+		toJSON: {
+			virtuals: true,
+		},
+	}
+);
 
 CommentSchema.set('toJSON', { getters: true });
 CommentSchema.options.toJSON.transform = (doc, ret) => {
@@ -51,6 +58,10 @@ PostSchema.methods.removeComment = function (id) {
     comment.remove();
     return this.save();
 };
+
+PostSchema.virtual('commentCount').get(function () {
+	return this.savedComments.length;
+});
 
 const Post = model('Post', PostSchema);
 module.exports = Post
