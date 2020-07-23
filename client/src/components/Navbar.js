@@ -15,7 +15,6 @@ const styles = {
     paddingBottom: "0px"
   },
   image: {
-    marginLeft: "35px",
     height: "50px"
     }
   }
