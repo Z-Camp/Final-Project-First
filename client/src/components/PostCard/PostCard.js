@@ -21,7 +21,7 @@ function PostCard(props) {
   const formattedDate = moment(props.updated).format('MM/DD/YYYY')
   return (
     <CardGroup>
-      <Card className="text-center">
+      <Card className="text-center card-hover" id="postCard">
         <Card.Header style={styles.button}>{props.author}</Card.Header>
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
