@@ -1,8 +1,10 @@
-# Saiddit - Definitely NOT a Reddit clone
+# Saiddit - Definitely _NOT_ a Reddit clone
 
 ![Progress: 50%](https://img.shields.io/badge/Progess-50%25-green?style=plastic)
 
 ## About Saiddit
+
+![Saiddit Logo](https://i.imgur.com/xqzrvS6.png)
 
 Saiddit is a social media platform where users will have the ability to share websites, posts and other content with other users that share the same interests or hobbies.
 
@@ -37,3 +39,5 @@ That's it, your app should be running on <http://localhost:3000>. The Express se
 - Better security for users and data
 - Build up user base
 - Custom profile photos
+
+  ![Categories](https://i.imgur.com/Mgr136j.png)
