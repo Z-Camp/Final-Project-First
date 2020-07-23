@@ -12,6 +12,9 @@ const styles = {
     },
     footer: {
         backgroundColor: "#a0d080"
+    },
+    card: {
+        height: "325px"
     }
 
 }
@@ -21,7 +24,7 @@ function FrontPagePosts(props) {
     }
     return (
         <CardGroup>
-            <Card className="text-center card-hover">
+            <Card style={styles.card} className="text-center card-hover">
                 <Card.Header style={styles.button}>{props.author}</Card.Header>
                 <Card.Body>
                     <Card.Text>Poster: {props.author}</Card.Text>

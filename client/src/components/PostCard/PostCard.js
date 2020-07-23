@@ -10,6 +10,10 @@ const styles = {
     backgroundColor: "#a0d080",
 
   },
+  card: {
+    height: "325px",
+    width: "325px"
+  }
   // text: {
   //   overflow: "hidden",
   //   height: "5em",
@@ -18,8 +22,8 @@ const styles = {
 }
 function PostCard(props) {
   return (
-    <CardGroup>
-      <Card className="text-center card-hover" id="postCard">
+    <CardGroup style={styles.card}>
+      <Card style={styles.card} className="text-center card-hover" id="postCard">
         <Card.Header style={styles.button}>{props.author}</Card.Header>
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
