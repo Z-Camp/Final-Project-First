@@ -19,7 +19,7 @@ const styles = {
 function PostCard(props) {
   return (
     <CardGroup>
-      <Card className="text-center">
+      <Card className="text-center card-hover" id="postCard">
         <Card.Header style={styles.button}>{props.author}</Card.Header>
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>

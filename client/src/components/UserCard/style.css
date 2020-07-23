@@ -24,8 +24,6 @@
 
 #usercard {
     border-style: outset;
-    /* border: black; */
     border-color: darkgray;
-    box-shadow: -1px -1px -1px -1px darkgrey;
     box-shadow: 0px 0px 2px 4px lightgrey
 }

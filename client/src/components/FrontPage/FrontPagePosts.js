@@ -21,9 +21,8 @@ function FrontPagePosts(props) {
     }
     return (
         <CardGroup>
-            <Card className="text-center">
-                <Card.Header style={styles.header}>{props.title}</Card.Header>
-                <Card.Img src={props.link}cap  />
+            <Card className="text-center card-hover">
+                <Card.Header style={styles.button}>{props.author}</Card.Header>
                 <Card.Body>
                     <Card.Text>Poster: {props.author}</Card.Text>
                     <Card.Text>
