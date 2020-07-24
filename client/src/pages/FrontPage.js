@@ -19,8 +19,6 @@ const styles = {
   col1: {
     marginTop: "30px"
   }
-
-
 }
 function FrontPage() {
   const postData = useContext(PostContext);

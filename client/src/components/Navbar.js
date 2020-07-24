@@ -6,6 +6,7 @@ import LoginForm from './LoginForm';
 import PostForm from './PostForm';
 import UserInfoContext from '../utils/UserInfoContext';
 import AuthService from '../utils/auth';
+import logo from './userIcons/main-icon.png'
 
 const styles = {
   navbar: {
@@ -32,7 +33,7 @@ function AppNavbar() {
       <Navbar className="navbar" style={styles.navbar} expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-          <img className="image" src="./icons/main-icon.png" alt="icon" style={styles.image}></img>
+          <img className="image" src={logo} alt="icon" style={styles.image}></img>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
