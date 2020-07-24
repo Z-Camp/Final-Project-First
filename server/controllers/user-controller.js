@@ -1,5 +1,6 @@
 // import user model
 const { User } = require('../models');
+const Post = require('../models/Post')
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 
@@ -47,27 +48,40 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
-  // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
+  // save a post to a user's `savedPosts` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function
-  async saveBook({ user, body }, res) {
+  // also adds new Post to Post collection
+  async savePost({ user, body }, res) {
     console.log(user);
+    console.log(body)
     try {
+      const newPost = await Post.create({
+        author: user.username,
+        authorID: user._id,
+        title: body.title,
+        postText: body.postText,
+        image: body.image,
+        link: body.link
+      })
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $addToSet: { savedBooks: body } },
+        { $addToSet: { savedPosts: newPost } },
         { new: true, runValidators: true }
       );
-      return res.json(updatedUser);
+      return res.json(newPost);
     } catch (err) {
       console.log(err);
       return res.status(400).json(err);
     }
   },
-  // remove a book from `savedBooks`
-  async deleteBook({ user, params }, res) {
+  // remove a post from `savedPosts`
+  async deletePost({ user, params }, res) {
+    const deletePost = await Post.destroy({
+      _id: postID
+    })
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      { $pull: { savedBooks: { bookId: params.id } } },
+      { $pull: { savedPosts: { postID: params.id } } },
       { new: true }
     );
     if (!updatedUser) {

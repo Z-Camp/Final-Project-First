@@ -1,15 +1,30 @@
 import React, { useState, useContext } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, Image } from 'react-bootstrap';
 
 import UserInfoContext from '../utils/UserInfoContext';
 import { createUser } from '../utils/API';
 import AuthService from '../utils/auth';
+import BlueIcon from './userIcons/blue.png';
+import PurpleIcon from './userIcons/purple.png';
+import CharcoalIcon from './userIcons/charcoal.png';
+import OrangeIcon from './userIcons/orange.png';
+import PinkIcon from './userIcons/pink.png';
+import RedIcon from './userIcons/red.png';
+import SmokeIcon from './userIcons/smoke.png';
+import YellowIcon from './userIcons/yellow.png';
+
+const styles = {
+  button: {
+    backgroundColor: "#a0d080"
+  }
+}
+
 
 function SignupForm({ handleModalClose }) {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', avatar: '' });
   // set state for form validation
-  const [validated, setValidation] = useState(false);
+  const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [errorText, setErrorText] = useState('');
@@ -47,6 +62,19 @@ function SignupForm({ handleModalClose }) {
         setShowAlert(true);
         setErrorText(err.response.data.message);
       });
+  };
+
+  const imgSize = {
+    height: "100px",
+    width: "90px",
+    padding: "5px",
+
+  };
+
+  const userPicked = e => {
+    setUserFormData({ ...userFormData, avatar: e.target.id });
+    e.target.className = "border border-dark";
+    console.log(e.target.id)
   };
 
   return (
@@ -96,11 +124,98 @@ function SignupForm({ handleModalClose }) {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+        <Form.Group controlId="iconCheckbox" name="iconSelector">
+          <text>Choose your avatar:</text>
+        </Form.Group>
+        <div className="iconSet">
+          <Image
+            onClick={e => userPicked(e)}
+            id="purple"
+            src={PurpleIcon}
+            alt="purple"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="pink"
+            src={PinkIcon}
+            alt="pink"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="yellow"
+            src={YellowIcon}
+            alt="yellow"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="orange"
+            src={OrangeIcon}
+            alt="orange"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="charcoal"
+            src={CharcoalIcon}
+            alt="charcoal"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="smoke"
+            src={SmokeIcon}
+            alt="smoke"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="red"
+            src={RedIcon}
+            alt="red"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+          <Image
+            onClick={e => userPicked(e)}
+            id="blue"
+            src={BlueIcon}
+            alt="blue"
+            style={imgSize}
+            value={userFormData.avatar}
+            className=''
+             />
+
+        </div>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          style={styles.button}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password && userFormData.avatar)}
           type='submit'
           variant='success'>
           Submit
+
         </Button>
       </Form>
     </>

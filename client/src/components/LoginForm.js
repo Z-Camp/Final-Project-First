@@ -1,15 +1,19 @@
 // see SignupForm.js for comments
-
 import React, { useState, useContext } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-
 import UserInfoContext from '../utils/UserInfoContext';
 import { loginUser } from '../utils/API';
 import AuthService from '../utils/auth';
 
+const styles = {
+  button: {
+    backgroundColor: "#a0d080"
+  }
+}
+
 function LoginForm({ handleModalClose }) {
   const [userFormData, setUserFormData] = useState({ username: '', password: '' });
-  const [validated, setValidation] = useState(false);
+  const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [errorText, setErrorText] = useState('');
 
@@ -74,7 +78,7 @@ function LoginForm({ handleModalClose }) {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
-        <Button disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>
+        <Button style={styles.button} disabled={!(userFormData.username && userFormData.password)} type='submit' variant='success'>
           Submit
         </Button>
       </Form>

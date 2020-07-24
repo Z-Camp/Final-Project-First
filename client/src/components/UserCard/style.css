@@ -1,0 +1,31 @@
+.card > .img-container > img {
+    position: relative;
+    bottom: 65px;
+    left: 20px
+    
+}
+.card > .content > .username {
+    padding: 20px;
+    position: relative;
+    bottom: 80px;
+   
+}
+
+.card > .content > .counts {
+    margin-left: 20px;
+    position: relative;
+    bottom: 50px;
+   
+}
+
+.card > .footer > .Row > .footimage {
+    padding-top: 7px;
+}
+
+#usercard {
+    border-style: outset;
+    border-color: darkgray;
+    box-shadow: 0px 0px 2px 4px lightgrey;
+    width: 325px;
+    height: 325px
+}

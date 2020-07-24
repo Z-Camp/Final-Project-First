@@ -1,13 +1,16 @@
 import React from 'react';
 
-// model our saved book state for context
+// model our saved post and comment states for context
 // running this gives us our Provider & Consumer
 // we'll set all of this data in App.js and use it throughout other components!
 const UserInfoContext = React.createContext({
-  savedBooks: [],
+  savedPosts: [],
+  savedComments: [],
   username: '',
   email: '',
-  bookCount: 0,
+  postCount: 0,
+  commentCount: 0,
+  avatar: '',
   getUserData: () => undefined,
 });
 
