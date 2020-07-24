@@ -6,6 +6,8 @@ import LoginForm from './LoginForm';
 import PostForm from './PostForm';
 import UserInfoContext from '../utils/UserInfoContext';
 import AuthService from '../utils/auth';
+import logo from './userIcons/main-icon.png'
+import'./styling/navbarStyle.css'
 
 const styles = {
   navbar: {
@@ -16,7 +18,7 @@ const styles = {
   },
   image: {
     height: "50px"
-    }
+  },
   }
 
 function AppNavbar() {
@@ -32,7 +34,7 @@ function AppNavbar() {
       <Navbar className="navbar" style={styles.navbar} expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-          <img className="image" src="./icons/main-icon.png" alt="icon" style={styles.image}></img>
+          <img className="image" src={logo} alt="icon" style={styles.image}></img>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
@@ -62,7 +64,7 @@ function AppNavbar() {
         <Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
-              <Nav variant='pills'>
+              <Nav className="nav-pills" variant='pills'>
                 <Nav.Item>
                   <Nav.Link className="newpost" eventKey='login'>Login</Nav.Link>
                 </Nav.Item>
@@ -84,14 +86,14 @@ function AppNavbar() {
           </Modal.Body>
         </Tab.Container>
       </Modal>
-      <Modal size='lg' show={showPostModal} onHide={() => setShowModal(false)} backdrop="static" aria-labelledby='post-modal'>
+      <Modal size='lg' show={showPostModal} onHide={() => setShowPostModal(false)} backdrop="static" aria-labelledby='post-modal'>
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey='post'>
           <Modal.Header closeButton>
             <Modal.Title id='post-modal'>
               <Nav variant='pills'>
                 <Nav.Item>
-                  <Nav.Link className="modalPost"  eventKey='post'>New Post</Nav.Link>
+                  New Post
                 </Nav.Item>
               </Nav>
             </Modal.Title>

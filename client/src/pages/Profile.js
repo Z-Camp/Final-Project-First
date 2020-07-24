@@ -31,20 +31,12 @@ function Profile() {
 
   return (
     <>
-
       <Container>
-        <Row className="justify-content-center">
-          <h1>{userData.username}'s Profile</h1>
-        </Row>
-      </Container>
-
-
-      <Container>
-        <h2>
+        <h1>
           {userData.savedPosts.length
             ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'post' : 'posts'}:`
             : 'You have not submitted any Posts!'}
-        </h2>
+        </h1>
         <Row>
           <Col md={8}>
             <CardGroup>
@@ -56,7 +48,7 @@ function Profile() {
                     title={post.title}
                     postText={post.postText}
                     updated={post.updated} >
-                    
+
                   </PostCard>
                 );
               })}
