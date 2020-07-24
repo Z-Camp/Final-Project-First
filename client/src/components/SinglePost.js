@@ -17,6 +17,9 @@ const styles = {
 	cardImage: {},
 	col: {
 		marginTop: "100px"
+	},
+	body: {
+		height: "relative"
 	}
 };
 function SinglePost(props) {
@@ -30,7 +33,7 @@ function SinglePost(props) {
 				<Card.Header style={styles.headerFooter}>{props.title}</Card.Header>
 				<Card.Img style={styles.cardImage} variant="top" src={props.link} cap />
 				<Card.Body>
-					<Card.Text>Poster: {props.author}</Card.Text>
+					
 					<Card.Text>Text: {props.postText}</Card.Text>
 				</Card.Body>
 				{username ? (

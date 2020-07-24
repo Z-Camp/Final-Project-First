@@ -1,10 +1,11 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
+import "./about.css"
 
 
 const styles = {
       card: {
-        height: "300px",
+        height: "175px",
         width: "260px",
         marginTop: "15px"
     }
@@ -15,11 +16,15 @@ const styles = {
 
 function AboutCard() {
     return (
-        <Card className="text-center" style={styles.card}>
-            <Card.Title>About</Card.Title>
+        <Card style={styles.card}>
+
             <Card.Body>
+                <Card.Title>Github Links</Card.Title>
                 <Card.Text>
-                    
+                    <Row className="links" ><a href="https://github.com/jdmmeli" target="_blank">Jason Meli</a></Row>
+                    <Row className="links"><a href="https://github.com/Z-Camp" target="_blank">Zach Campbell</a></Row>
+                    <Row className="links"><a href="https://github.com/jbrandona119" target="_blank">Brandon Arnold</a></Row>
+                    <Row className="links"><a href="https://github.com/alecweems" target="_blank">Alec Weems</a></Row>
                    
                 </Card.Text>
                 
