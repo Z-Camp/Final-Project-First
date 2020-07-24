@@ -1,9 +1,7 @@
-import React, { useState, useContext, useEffect, getSnapshotBeforeUpdate } from 'react';
-import { Container, Col, Form, Button, Card, CardColumns, Row } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
 import PostContext from '../utils/PostContext';
-import AuthService from '../utils/auth';
 import FrontPagePosts from '../components/FrontPage/FrontPagePosts';
-import * as API from '../utils/API';
 import CategoriesCard from "../components/Categories/CategoriesCard"
 import Ads from "../components/AdsCard/AdsCard"
 import Chuck from "../components/ChuckNorris2020/Chuck"
@@ -64,12 +62,7 @@ function FrontPage() {
         </Row>
       </Col>
        </Row>
-
-
       </Container>
-
-
-
 
   )
 }

@@ -21,6 +21,7 @@ function PostForm({ handleModalClose }) {
   const [errorText, setErrorText] = useState('');
 
   // get context object from app.js
+  // eslint-disable-next-line
   const userData = useContext(UserInfoContext)
 
   const handleInputChange = (e) => {
@@ -30,7 +31,6 @@ function PostForm({ handleModalClose }) {
 
   const handleFormSubmit = (e) => {
      e.preventDefault();
-
     // check if form has everything (as per react-bootstrap docs)
     const form = e.currentTarget;
     if (form.checkValidity() === false) {

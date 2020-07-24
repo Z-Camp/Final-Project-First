@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
 import CommentCard from './CommentCard/CommentCard';
 import UserInfoContext from '../utils/UserInfoContext';
-import { Navbar, Nav, Container, Modal, Tab, Row, Col } from 'react-bootstrap';
+import { Container, Modal, Tab, Row, Col } from 'react-bootstrap';
 import CommentForm from './CommentForm';
 import moment from 'moment';
 
