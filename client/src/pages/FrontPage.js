@@ -14,27 +14,25 @@ const styles = {
   col: {
     display: "flex",
     flexDirection: "column-reverse",
-   
+
   },
   col1: {
-    marginTop: "100px"
+    marginTop: "30px"
   }
- 
-
 }
 function FrontPage() {
   const postData = useContext(PostContext);
 
   return (
 
- 
+
     <Container style={styles.col1}>
       <Row>
         <Col xs={12} sm={12} md={9} style={styles.col}>
       {postData.AllPosts.map((post)=> {
         return (
-         
-         
+
+
           <FrontPagePosts
             key={post.id}
             author={post.author}
@@ -56,7 +54,7 @@ function FrontPage() {
           <Ads />
         </Row>
         <Row>
-        
+
         </Row>
         <Row>
           <Chuck />
@@ -66,13 +64,13 @@ function FrontPage() {
         </Row>
       </Col>
        </Row>
-       
-      
+
+
       </Container>
-    
-   
-   
-  
+
+
+
+
   )
 }
 
