@@ -14,7 +14,7 @@ const styles = {
         backgroundColor: "#a0d080"
     },
     card: {
-        height: "325px"
+        height: "auto"
     }
 
 }

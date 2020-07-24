@@ -15,6 +15,9 @@ const styles = {
 		backgroundColor: '#bfd72e',
 	},
 	cardImage: {},
+	col: {
+		marginTop: "100px"
+	}
 };
 function SinglePost(props) {
 	const { username } = useContext(UserInfoContext);
@@ -22,7 +25,7 @@ function SinglePost(props) {
 
 	return (
         <>
-		<CardGroup>
+		<CardGroup style={styles.col} >
 			<Card className="text-center">
 				<Card.Header style={styles.headerFooter}>{props.title}</Card.Header>
 				<Card.Img style={styles.cardImage} variant="top" src={props.link} cap />
