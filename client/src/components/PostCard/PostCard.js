@@ -3,7 +3,8 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "./style.css"
 import CardGroup from 'react-bootstrap/CardGroup'
-import { View, Text } from "react"
+import { View, Text } from "react";
+import moment from 'moment';
 
 const styles = {
   button: {
@@ -21,6 +22,7 @@ const styles = {
   // }
 }
 function PostCard(props) {
+  const formattedDate = moment(props.updated).format('MM/DD/YYYY')
   return (
     <CardGroup style={styles.card}>
       <Card style={styles.card} className="text-center card-hover" id="postCard">
@@ -30,7 +32,7 @@ function PostCard(props) {
           <Card.Text>{props.postText}</Card.Text>
           <Button style={styles.button} variant="primary">Go to Post</Button>
         </Card.Body>
-        <Card.Footer style={styles.button} className="text-muted">Updated:{props.updated}</Card.Footer>
+        <Card.Footer style={styles.button} className="text-muted">Updated: {formattedDate}</Card.Footer>
       </Card>
     </CardGroup>
 

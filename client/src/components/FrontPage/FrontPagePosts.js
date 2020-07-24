@@ -1,7 +1,8 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import CardGroup from 'react-bootstrap/CardGroup'
+import CardGroup from 'react-bootstrap/CardGroup';
+import moment from 'moment';
 
 const styles = {
     button: {
@@ -19,8 +20,9 @@ const styles = {
 
 }
 function FrontPagePosts(props) {
+    const formattedDate = moment(props.updated).format('MM/DD/YYYY')
     const goToPost = () => {
-        window.location.href=`/post/${props.postId}`
+        window.location.href = `/post/${props.postId}`
     }
     return (
         <CardGroup>
@@ -33,7 +35,7 @@ function FrontPagePosts(props) {
                     </Card.Text>
                     <Button style={styles.button} onClick={goToPost} postID={props.key} variant="primary">Go to Post</Button>
                 </Card.Body>
-                <Card.Footer style={styles.footer} className="text-muted">Comments: {props.commentCount}   ||   Posted: {props.updated}</Card.Footer>
+                <Card.Footer style={styles.footer} className="text-muted">Comments: {props.commentCount}   ||   Posted: {formattedDate}</Card.Footer>
             </Card>
         </CardGroup>
     )

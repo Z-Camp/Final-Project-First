@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './style.css';
 import CardGroup from 'react-bootstrap/CardGroup';
 import { View, Text } from 'react';
+import moment from 'moment';
 
 const styles = {
 	button: {
@@ -12,12 +13,14 @@ const styles = {
 };
 
 function CommentCard(props) {
+	const formattedDate = moment(props.updated).format('MM/DD/YYYY')
+
 	return (
 		<CardGroup>
 			<Card className="text-left">
 				<Card.Body>
-					<Card.Text>comment author: {props.author} posted: {props.updated}</Card.Text>
-                    <Card.Text>comment text: {props.commentText}</Card.Text>
+					<Card.Text>comment author: {props.author} posted: {formattedDate}</Card.Text>
+					<Card.Text>comment text: {props.commentText}</Card.Text>
 				</Card.Body>
 			</Card>
 		</CardGroup>

@@ -35,8 +35,7 @@ export const getAllPosts = function () {
   return axios.get('/api/posts')
     ;
 }
-
-export const addComment = function ( commentData, token, postId ) {
+export const addComment = function (commentData, token, postId) {
   //not solid just typing stuff
   return axios.put(`/api/posts/${postId}`, commentData, { headers: { authorization: `Bearer ${token}` } })
 }
@@ -44,6 +43,7 @@ export const addComment = function ( commentData, token, postId ) {
 export const deleteComment = function (postID, comment) {
   return axios.delete(`/api/${postID}/${comment},`)
 }
+
 
 export const getPost = function (postId) {
   return axios.get(`/api/posts/${postId}`);
