@@ -2,6 +2,7 @@ import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import "./style.css";
+import logo from '../userIcons/main-icon.png'
 
 
 
@@ -11,7 +12,6 @@ const styles = {
     height: "90px"
   },
   footer: {
-    height: "45px",
     background: "#a0d080",
   },
   counts: {
@@ -25,7 +25,7 @@ const styles = {
     borderRadius: "5px"
   },
   footimage: {
-    paddingTop: "7px"
+    padding: "7px"
   }
 
 
@@ -74,7 +74,7 @@ function UserCard(props) {
 
         <div className="footer" style={styles.footer}>
           <Row className="justify-content-center">
-            <img className="footimage" src="./icons/favicon-32x32.png" alt="icon" style={styles.footimage}></img>
+            <img className="footimage" src={logo} alt="icon" style={styles.footimage}></img>
           </Row>
         </div>
       </div>
