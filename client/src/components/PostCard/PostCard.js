@@ -28,7 +28,7 @@ const styles = {
 }
 function PostCard(props) {
 	const goToPost = () => {
-		window.location.href = `/post/${props.postId}`;
+		window.location.href = `/post/${props.key}`;
   };
   const formattedDate = moment(props.updated).format('MM/DD/YYYY')
 	return (

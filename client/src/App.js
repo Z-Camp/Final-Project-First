@@ -52,7 +52,7 @@ function App() {
 	useEffect(() => {
 		userInfo.getUserData();
 		loadPosts()
-	}, []);
+	},[]);
 
 	return (
 		<Router>

@@ -44,12 +44,12 @@ function Profile() {
               {userData.savedPosts.map((post) => {
                 return (
                   <PostCard
-                    key={post.postID}
+                    key={post.id}
                     author={post.author}
                     title={post.title}
                     postText={post.postText}
-                    updated={post.updated} >
-
+                    updated={post.updated}
+                    link={post.link}>
                   </PostCard>
                 );
               })}
