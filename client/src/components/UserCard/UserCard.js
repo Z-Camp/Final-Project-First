@@ -13,11 +13,11 @@ const styles = {
   },
   footer: {
     background: "#a0d080",
-   
+
   },
   counts: {
     marginleft: "20px;",
-   
+
   },
   img: {
     borderRadius: "5px",
@@ -33,15 +33,10 @@ const styles = {
 
 
 function UserCard(props) {
-
   const avatarColor = require.context('../userIcons', true);
 
-
-  console.log(props)
-  const userIcons = require.context("../userIcons", true)
-
   return (
-  
+
     <div
       className="card"
       id="usercard">

@@ -16,10 +16,11 @@ const styles = {
         backgroundColor: "#a0d080"
     },
     card: {
-        height: '100%',
+        height: '90%',
+        marginBottom:'10px'
     },
     img: {
-        padding: '10%',
+        padding: '5%',
         height: '100%',
         width: '100%'
     }
@@ -53,7 +54,7 @@ function FrontPagePosts(props) {
                 <Card.Footer style={styles.footer} className="text-muted">Posted By: {props.author}   ||   Comments: {props.commentCount}   ||   Posted: {formattedDate}</Card.Footer>
             </Card>
         </CardGroup>
-        <br />
+        {/* <br /> */}
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Jumbotron, Container, CardGroup, Card, Button, Row, Col } from 'react-bootstrap';
+import { Container, CardGroup, Row, Col } from 'react-bootstrap';
 import PostCard from '../components/PostCard/PostCard'
 import UserCard from '../components/UserCard/UserCard'
 // import context for global state
@@ -16,6 +16,7 @@ function Profile() {
   const userData = useContext(UserInfoContext);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
+  // eslint-disable-next-line
   const handleDeletePost = (postID) => {
     // get token
     const token = AuthService.loggedIn() ? AuthService.getToken() : null;

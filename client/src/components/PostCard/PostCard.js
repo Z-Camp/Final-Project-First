@@ -3,9 +3,8 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 import "./style.css"
 import CardGroup from 'react-bootstrap/CardGroup'
-import { View, Text } from "react";
 import moment from 'moment';
-import { Navbar, Nav, Container, Modal, Tab, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 const styles = {

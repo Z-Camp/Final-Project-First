@@ -1,8 +1,7 @@
-import React, { useState, useEffect, setState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import FrontPage from './pages/FrontPage';
 import Profile from './pages/Profile';
-import LandingPage from './pages/landingPage'
 import Navbar from './components/Navbar';
 import SinglePostPage from './pages/SinglePostPage';
 
@@ -49,7 +48,7 @@ function App() {
 			.catch((err) => console.log(err));
 	}
 
-
+// eslint-disable-next-line
 	useEffect(() => {
 		userInfo.getUserData();
 		loadPosts()

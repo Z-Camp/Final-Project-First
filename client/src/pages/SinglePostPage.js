@@ -1,15 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {
 	Container,
 	Col,
-	Form,
-	Button,
-	Card,
-	CardColumns,
 	Row,
 } from 'react-bootstrap';
 import PostContext from '../utils/PostContext';
-import AuthService from '../utils/auth';
 import SinglePost from '../components/SinglePost';
 import CategoriesCard from "../components/Categories/CategoriesCard"
 import Ads from "../components/AdsCard/AdsCard"

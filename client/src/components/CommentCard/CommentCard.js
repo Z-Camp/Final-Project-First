@@ -1,16 +1,9 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import './style.css';
 import CardGroup from 'react-bootstrap/CardGroup';
-import { View, Text } from 'react';
 import moment from 'moment';
 
-const styles = {
-	button: {
-		backgroundColor: '#a0d080',
-	},
-};
 
 function CommentCard(props) {
 	const formattedDate = moment(props.updated).format('MM/DD/YYYY')

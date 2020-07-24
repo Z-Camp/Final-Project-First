@@ -21,8 +21,10 @@ function CommentForm({ handleModalClose }) {
 	const [errorText, setErrorText] = useState('');
 
 	// get context object from app.js
+	// eslint-disable-next-line
 	const userData = useContext(UserInfoContext);
-    let postId = window.location.href.split("/")[4];
+	let postId = window.location.href.split("/")[4];
+	// eslint-disable-next-line
     useEffect(() => {
         setcommentFormData({ postId: postId });
     }, []);
