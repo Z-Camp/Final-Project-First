@@ -9,7 +9,7 @@ import logo from '../userIcons/main-icon.png'
 const styles = {
   header: {
     background: "#a0d080",
-    height: "90px"
+    height: "90px",
   },
   footer: {
     background: "#a0d080",
@@ -41,9 +41,11 @@ function UserCard(props) {
       className="card"
       id="usercard">
       <div
-        className="header"
-        style={styles.header}></div>
-      <div className="img-container">
+        className="header text-center username"
+        style={styles.header}>
+          <h1>{props.username}</h1>
+      </div>
+      <div className="row img-container">
         <img className="img" alt="img"
           src=
           {props.avatar ? (
@@ -55,14 +57,10 @@ function UserCard(props) {
       <div
         className="content">
         <div
-          className="username">
-           {props.username}
-        </div>
-        <div
           className="counts">
           <Row>
-            <Col md={5}>Posts: {props.postCount}</Col>
-            <Col md={5}>Comments: {props.commentCount}</Col>
+            <Col className="text-center" md={5}>Posts: {props.postCount}</Col>
+            <Col className="text-center" md={5}>Comments: {props.commentCount}</Col>
           </Row>
 
         </div>

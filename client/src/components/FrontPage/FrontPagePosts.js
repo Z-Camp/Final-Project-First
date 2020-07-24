@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import CardGroup from 'react-bootstrap/CardGroup';
 import { Row, Col, Container } from "react-bootstrap";
 import moment from 'moment';
+import logo from '../images/ms-icon-310x310.png'
 
 const styles = {
     button: {
@@ -38,7 +39,7 @@ function FrontPagePosts(props) {
                 <Container>
                     <Row>
                     <Col xs lg='3'>
-                        <Card.Img style={styles.img} variant="top" src={props.link ?  (props.link) : ('https://via.placeholder.com/150')} />
+                        <Card.Img style={styles.img} variant="top" src={props.link ?  (props.link) : (logo)} />
                     </Col>
                     <Col>
                         <Card.Body>

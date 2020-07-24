@@ -7,6 +7,7 @@ import UserInfoContext from '../utils/UserInfoContext';
 import { Container, Modal, Tab, Row, Col } from 'react-bootstrap';
 import CommentForm from './CommentForm';
 import moment from 'moment';
+import logo from './images/ms-icon-310x310.png'
 
 
 const styles = {
@@ -44,7 +45,7 @@ function SinglePost(props) {
 									style={styles.img}
 									variant="top"
 									src={
-										props.link ? props.link : 'https://via.placeholder.com/150'
+										props.link ? props.link : logo
 									}
 								/>
 							</Col>
