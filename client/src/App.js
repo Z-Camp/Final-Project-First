@@ -64,7 +64,7 @@ function App() {
 						<Switch>
 							<Route exact path="/" component={FrontPage} />
 							<Route exact path="/saved" component={Profile} />
-							<Route path="/post/" component={SinglePostPage} />
+							<Route path="/post/:id" component={SinglePostPage} />
 							<Route render={() => <h1 className="display-2">Wrong page!</h1>} />
 						</Switch>
 					</PostContext.Provider>
