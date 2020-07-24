@@ -28,7 +28,6 @@ function FrontPagePosts(props) {
     const formattedDate = moment(props.updated).format('MM/DD/YYYY')
     const history = useHistory()
     const goToPost = () => {
-        // window.location.href = `/post/${props.postId}`
         history.push(`/post/${props.postId}`)
     }
     return (
