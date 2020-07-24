@@ -13,16 +13,15 @@ const styles = {
   },
   footer: {
     background: "#a0d080",
+   
   },
   counts: {
     marginleft: "20px;",
-    position: "relative",
-    bottom: "70px;"
+   
   },
   img: {
-    borderStyle: "solid",
-    borderColor: "#bfd730",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    height: "100px"
   },
   footimage: {
     padding: "7px"
@@ -42,11 +41,12 @@ function UserCard(props) {
   const userIcons = require.context("../userIcons", true)
 
   return (
+  
     <div
       className="card"
       id="usercard">
       <div
-        clasName="header"
+        className="header"
         style={styles.header}></div>
       <div className="img-container">
         <img className="img" alt="img"
@@ -61,7 +61,7 @@ function UserCard(props) {
         className="content">
         <div
           className="username">
-          User Name: {props.username}
+           {props.username}
         </div>
         <div
           className="counts">

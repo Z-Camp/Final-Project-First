@@ -25,5 +25,7 @@
 #usercard {
     border-style: outset;
     border-color: darkgray;
-    box-shadow: 0px 0px 2px 4px lightgrey
+    box-shadow: 0px 0px 2px 4px lightgrey;
+    width: 325px;
+    height: 325px
 }
