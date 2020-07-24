@@ -1,10 +1,8 @@
 import React from "react";
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button'
-import CardGroup from 'react-bootstrap/CardGroup';
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button, CardGroup, Card } from "react-bootstrap";
 import moment from 'moment';
 import logo from '../images/ms-icon-310x310.png'
+import { useHistory } from 'react-router-dom'
 
 const styles = {
     button: {
@@ -28,8 +26,10 @@ const styles = {
 }
 function FrontPagePosts(props) {
     const formattedDate = moment(props.updated).format('MM/DD/YYYY')
+    const history = useHistory()
     const goToPost = () => {
-        window.location.href = `/post/${props.postId}`
+        // window.location.href = `/post/${props.postId}`
+        history.push(`/post/${props.postId}`)
     }
     return (
         <>

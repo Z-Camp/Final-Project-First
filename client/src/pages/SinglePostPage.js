@@ -6,12 +6,12 @@ import {
 } from 'react-bootstrap';
 import PostContext from '../utils/PostContext';
 import SinglePost from '../components/SinglePost';
-import CategoriesCard from "../components/Categories/CategoriesCard";
-import Ads from "../components/AdsCard/AdsCard";
-import Chuck from "../components/ChuckNorris2020/Chuck";
+import CategoriesCard from "../components/Categories/CategoriesCard"
+import Ads from "../components/AdsCard/AdsCard"
+import Chuck from "../components/ChuckNorris2020/Chuck"
 import AboutCard from '../components/AboutCard/AboutCard';
 import { useParams } from 'react-router-dom';
-import { ObjectID } from 'mongodb'
+
 
 const styles = {
 	col: {
@@ -31,7 +31,7 @@ function SinglePostPage() {
 		<Container style={styles.col1}>
 			<Row className='d-flex align-items-start'>
 				<Col xs={12} sm={12} md={9} style={styles.col} >
-					{postData.AllPosts.filter((post) => ObjectID(post.id) === id).map(
+					{postData.AllPosts.filter((post) => post.id === id).map(
 						(post) => {
 							return (
 								<Row>
