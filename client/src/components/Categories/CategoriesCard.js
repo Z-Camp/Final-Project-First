@@ -13,10 +13,10 @@ const styles = {
         backgroundColor: "#a0d080",
         width: "90%",
        position: "relative",
-       top: "45px"
+       top: "5px"
     },
     card: {
-        height: "400px",
+        height: "auto",
         width: "260px"
     },
     header: {

@@ -6,14 +6,15 @@ import CommentCard from './CommentCard/CommentCard';
 import UserInfoContext from '../utils/UserInfoContext';
 import { Navbar, Nav, Container, Modal, Tab, Row, Col } from 'react-bootstrap';
 import CommentForm from './CommentForm';
+import moment from 'moment';
+
 
 const styles = {
 	button: {
-<<<<<<< HEAD
         backgroundColor: "#a0d080"
     },
     header: {
-        backgroundColor: "#bfd72e"
+        backgroundColor: "#a0d080"
     },
     footer: {
         backgroundColor: "#a0d080"
@@ -26,24 +27,12 @@ const styles = {
         height: '100%',
         width: '100%'
     }
-=======
-		backgroundColor: '#a0d080',
-	},
-	headerFooter: {
-		backgroundColor: '#bfd72e',
-	},
-	cardImage: {},
-	col: {
-		marginTop: "100px"
-	}
->>>>>>> cd5998a9a615da0c64e6f0f041491d8a477082ba
 };
 function SinglePost(props) {
 	const { username } = useContext(UserInfoContext);
 	const [showModal, setShowModal] = useState(false);
-
+	const formattedDate = moment(props.updated).format('MM/DD/YYYY')
 	return (
-<<<<<<< HEAD
 		<>
 			<CardGroup>
 				<Card style={styles.card} className="text-center">
@@ -81,8 +70,7 @@ function SinglePost(props) {
 						</Row>
 					</Container>
 					<Card.Footer style={styles.footer} className="text-muted">
-						Posted By: {props.author} || Comments: {props.commentCount} ||
-						Posted: {props.updated}
+						Posted By: {props.author} || Comments: {props.commentCount} || Posted: {formattedDate}
 					</Card.Footer>
 					{props.savedComments.map((comment) => {
 						return (
@@ -117,58 +105,6 @@ function SinglePost(props) {
 				</Tab.Container>
 			</Modal>
 		</>
-=======
-        <>
-		<CardGroup style={styles.col} >
-			<Card className="text-center">
-				<Card.Header style={styles.headerFooter}>{props.title}</Card.Header>
-				<Card.Img style={styles.cardImage} variant="top" src={props.link} cap />
-				<Card.Body>
-					<Card.Text>Poster: {props.author}</Card.Text>
-					<Card.Text>Text: {props.postText}</Card.Text>
-				</Card.Body>
-				{username ? (
-					<Button onClick={() => setShowModal(true)} style={styles.button} variant="primary">
-						Add a Comment
-					</Button>
-				) : (
-					<Button style={styles.button} href="/" variant="primary">
-						Return to Main Feed
-					</Button>
-				)}
-				<Card.Footer style={styles.headerFooter} className="text-muted">
-					Comments: {props.commentCount} || Posted: {props.updated}
-				</Card.Footer>
-				{props.savedComments.map((comment) => {
-					return (
-						<CommentCard
-							auhor={comment.author}
-							authorID={comment.authorID}
-							commentText={comment.commentText}
-							updated={comment.updated}
-						></CommentCard>
-					);
-				})}
-			</Card>
-		</CardGroup>
-        <Modal size='lg' show={showModal} onHide={() => setShowModal(false)} aria-labelledby='comment'>
-        {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='comment'>
-          <Modal.Header closeButton>
-            <Modal.Title id='comment'>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey='comment'>
-                <CommentForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
-      </>
->>>>>>> cd5998a9a615da0c64e6f0f041491d8a477082ba
 	);
 }
 

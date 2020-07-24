@@ -73,6 +73,7 @@ function SignupForm({ handleModalClose }) {
 
   const userPicked = e => {
     setUserFormData({ ...userFormData, avatar: e.target.id });
+    e.target.className = "border border-dark";
     console.log(e.target.id)
   };
 
@@ -134,6 +135,7 @@ function SignupForm({ handleModalClose }) {
             alt="purple"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -143,6 +145,7 @@ function SignupForm({ handleModalClose }) {
             alt="pink"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -152,6 +155,7 @@ function SignupForm({ handleModalClose }) {
             alt="yellow"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -161,6 +165,7 @@ function SignupForm({ handleModalClose }) {
             alt="orange"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -170,6 +175,7 @@ function SignupForm({ handleModalClose }) {
             alt="charcoal"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -179,6 +185,7 @@ function SignupForm({ handleModalClose }) {
             alt="smoke"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -188,6 +195,7 @@ function SignupForm({ handleModalClose }) {
             alt="red"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
           <Image
@@ -197,6 +205,7 @@ function SignupForm({ handleModalClose }) {
             alt="blue"
             style={imgSize}
             value={userFormData.avatar}
+            className=''
              />
 
         </div>
