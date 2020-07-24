@@ -5,6 +5,7 @@ import "./style.css"
 import CardGroup from 'react-bootstrap/CardGroup'
 import moment from 'moment';
 import { Container, Row, Col } from 'react-bootstrap';
+import logo from '../images/ms-icon-310x310.png'
 
 
 const styles = {
@@ -28,7 +29,7 @@ const styles = {
 }
 function PostCard(props) {
 	const goToPost = () => {
-		window.location.href = `/post/${props.key}`;
+		window.location.href = `/post/${props.postId}`;
   };
   const formattedDate = moment(props.updated).format('MM/DD/YYYY')
 	return (
@@ -41,7 +42,7 @@ function PostCard(props) {
 								style={styles.img}
 								variant="top"
 								src={
-									props.link ? props.link : 'https://via.placeholder.com/150'
+									props.link ? props.link : logo
 								}
 							/>
             </Row>
