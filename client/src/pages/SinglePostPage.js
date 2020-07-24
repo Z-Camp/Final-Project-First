@@ -10,6 +10,7 @@ import CategoriesCard from "../components/Categories/CategoriesCard"
 import Ads from "../components/AdsCard/AdsCard"
 import Chuck from "../components/ChuckNorris2020/Chuck"
 import AboutCard from '../components/AboutCard/AboutCard';
+import { useParams } from 'react-router-dom';
 
 
 const styles = {
@@ -21,15 +22,16 @@ const styles = {
 		marginTop: "30px"
 	  }
 };
+
+
 function SinglePostPage() {
 	const postData = useContext(PostContext);
-	let displayPostId = window.location.href.split('/')[4];
-
+	let {id} = useParams();
 	return (
 		<Container style={styles.col1}>
 			<Row className='d-flex align-items-start'>
 				<Col xs={12} sm={12} md={9} style={styles.col} >
-					{postData.AllPosts.filter((post) => post.id === displayPostId).map(
+					{postData.AllPosts.filter((post) => post.id === id).map(
 						(post) => {
 							return (
 								<Row>
@@ -37,6 +39,7 @@ function SinglePostPage() {
 										<SinglePost
 											key={post._id}
 											author={post.author}
+											link={post.link}
 											title={post.title}
 											postText={post.postText}
 											commentCount={post.commentCount}
