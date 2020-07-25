@@ -9,7 +9,8 @@ const styles = {
         backgroundColor: "#a0d080"
     },
     header: {
-        backgroundColor: "#a0d080"
+        backgroundColor: "#a0d080",
+        color: "white"
     },
     footer: {
         backgroundColor: "#a0d080"
@@ -33,8 +34,8 @@ function FrontPagePosts(props) {
     return (
         <>
         <CardGroup style={styles.cardgroup}>
-            <Card style={styles.card} className="text-center card-hover">
-                <Card.Header style={styles.header}>{props.title}</Card.Header>
+            <Card style={styles.card} className="card-hover">
+                <Card.Header className="text-center" style={styles.header}><h2>{props.title}</h2></Card.Header>
                 <Container>
                     <Row>
                     <Col xs lg='3'>
@@ -43,15 +44,15 @@ function FrontPagePosts(props) {
                     <Col>
                         <Card.Body>
                             <Card.Text></Card.Text>
-                            <Card.Text>
-                                Post Text: {props.postText}
+                            <Card.Text className="text-left">
+                                {props.postText}
                             </Card.Text>
                             <Button style={styles.button} onClick={goToPost} postID={props.key} variant="primary">Go to Post</Button>
                         </Card.Body>
                     </Col>
                     </Row>
                 </Container>
-                <Card.Footer style={styles.footer} className="text-muted">Posted By: {props.author}   ||   Comments: {props.commentCount}   ||   Posted: {formattedDate}</Card.Footer>
+                <Card.Footer style={styles.footer} className="text-center text-muted">Posted By: {props.author}   ||   Comments: {props.commentCount}   ||   Posted: {formattedDate}</Card.Footer>
             </Card>
         </CardGroup>
         {/* <br /> */}

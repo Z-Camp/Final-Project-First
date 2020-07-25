@@ -33,11 +33,11 @@ function Profile() {
   return (
     <>
       <Container>
-        <h1>
+        <h2 className='text-left'>
           {userData.savedPosts.length
             ? `Viewing ${userData.savedPosts.length} saved ${userData.savedPosts.length === 1 ? 'post' : 'posts'}:`
             : 'You have not submitted any Posts!'}
-        </h1>
+        </h2>
         <Row>
           <Col md={8}>
             <CardGroup>

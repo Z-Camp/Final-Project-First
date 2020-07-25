@@ -12,8 +12,7 @@ const styles = {
     height: "90px",
   },
   footer: {
-    background: "#a0d080",
-
+    background: "#a0d080"
   },
   counts: {
     marginleft: "20px;",
@@ -59,8 +58,8 @@ function UserCard(props) {
         <div
           className="counts">
           <Row>
-            <Col className="text-center" md={5}>Posts: {props.postCount}</Col>
-            <Col className="text-center" md={5}>Comments: {props.commentCount}</Col>
+            <Col className="text-center" md={5}><h6>Posts: {props.postCount}</h6></Col>
+            <Col className="text-center" md={5}><h6>Comments: {props.commentCount}</h6></Col>
           </Row>
 
         </div>
