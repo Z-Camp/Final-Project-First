@@ -15,7 +15,8 @@ const styles = {
         backgroundColor: "#a0d080"
     },
     header: {
-        backgroundColor: "#a0d080"
+		backgroundColor: "#a0d080",
+		color: "white"
     },
     footer: {
         backgroundColor: "#a0d080"
@@ -36,8 +37,8 @@ function SinglePost(props) {
 	return (
 		<>
 			<CardGroup>
-				<Card style={styles.card} className="text-center">
-					<Card.Header style={styles.header}>{props.title}</Card.Header>
+				<Card style={styles.card} >
+					<Card.Header className="text-center" style={styles.header}><h2>{props.title}</h2></Card.Header>
 					<Container>
 						<Row>
 							<Col xs lg="3">
@@ -52,7 +53,7 @@ function SinglePost(props) {
 							<Col>
 								<Card.Body>
 									<Card.Text></Card.Text>
-									<Card.Text>Post Text: {props.postText}</Card.Text>
+									<Card.Text className="text-left">{props.postText}</Card.Text>
 									{username ? (
 										<Button
 											onClick={() => setShowModal(true)}
@@ -70,7 +71,7 @@ function SinglePost(props) {
 							</Col>
 						</Row>
 					</Container>
-					<Card.Footer style={styles.footer} className="text-muted">
+					<Card.Footer style={styles.footer} className="text-center text-muted">
 						Posted By: {props.author} || Comments: {props.commentCount} || Posted: {formattedDate}
 					</Card.Footer>
 					{props.savedComments.map((comment) => {
