@@ -30,6 +30,8 @@ function Profile() {
       .catch((err) => console.log(err));
   };
 
+
+
   return (
     <>
       <Container>
@@ -58,7 +60,7 @@ function Profile() {
           </Col>
           <Col md={4}>
             <UserCard
-              username={userData.username}
+
               avatar={userData.avatar}
               postCount={userData.postCount}
               commentCount={userData.commentCount}
