@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "if-env": "^1.0.4",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "mongoose-auto-increment": "^5.0.1"
   },
   "devDependencies": {
